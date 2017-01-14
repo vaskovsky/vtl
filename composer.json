@@ -1,0 +1,15 @@
+{
+	"name" : "vaskovsky/web-application",
+	"description" : "Minimalistic web application framework.",
+	"license" : "LGPL-3.0",
+	"require" : {
+		"php" : ">=5.4",
+		"ext-gettext" : "*"
+	},
+	"autoload" : {
+		"psr-4" : {
+			"Vaskovsky\\WebApplication\\" : "src",
+			"Vaskovsky\\WebApplicationExample\\" : "example"
+		}
+	}
+}
