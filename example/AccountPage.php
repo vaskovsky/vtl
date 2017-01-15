@@ -122,12 +122,13 @@ class AccountPage extends Page
 	protected function insert($x)
 	{
 		// x: valid model -null @CatalogPage
+		$hash = $this->getAuthorization()->getPasswordHash($x->password);
 		$pdo = $this->getPDO();
 		$sql = "insert into Account (";
 		$sql .= "username, password, role_admin";
 		$sql .= ") values (";
 		$sql .= $pdo->quote($x->username) . ", ";
-		$sql .= $pdo->quote($x->password) . ", ";
+		$sql .= $pdo->quote($hash) . ", ";
 		$sql .= ($x->role_admin ? "true" : "false") . ")";
 		return $pdo->exec($sql);
 	}
@@ -145,7 +146,8 @@ class AccountPage extends Page
 			$sql .= "username = " . $pdo->quote($x->username) . ", ";
 			$sql .= "role_admin = " . ($x->role_admin ? "true" : "false") . " ";
 		} else {
-			$sql .= "password = " . $pdo->quote($x->password);
+			$hash = $this->getAuthorization()->getPasswordHash($x->password);
+			$sql .= "password = " . $pdo->quote($hash);
 		}
 		$sql .= "where id = " . (int) $x->id;
 		return $pdo->exec($sql);
