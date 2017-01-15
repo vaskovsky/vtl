@@ -111,7 +111,7 @@ class BasicAuthorization implements Authorization
 			$acc_sql = "select * from {$this->table} where username = ";
 			$acc_sql .= $this->pdo->quote($username);
 			$account = $this->pdo->query($acc_sql)->fetchObject();
-			if (is_null($account))
+			if (empty($account))
 				return false;
 			$hash = $account->password;
 			if (empty($hash)) {
