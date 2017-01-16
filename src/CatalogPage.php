@@ -178,12 +178,12 @@ namespace Vaskovsky\WebApplication;
 trait CatalogPage {
 	abstract protected function create();
 	abstract protected function sanitize($x);
-	abstract protected function validateUpdate($x);
 	abstract protected function select($x);
 	abstract protected function get($x);
 	abstract protected function insert($x);
 	abstract protected function update($x);
 	abstract protected function delete($x);
+	abstract protected function validateUpdate($x);
 	protected function validateInsert($x)
 	{
 		return $this->validateUpdate($x);
@@ -207,6 +207,7 @@ trait CatalogPage {
 		return $this->render(
 			"{$model_name}Index",
 			array(
+				"request" => $req,
 				"list" => $list
 			));
 	}
@@ -224,6 +225,7 @@ trait CatalogPage {
 		return $this->render(
 			"{$model_name}Editor",
 			array(
+				"request" => $req,
 				"model" => $data,
 				"permissions" => (object) [
 					"can_insert" => false,
@@ -235,11 +237,13 @@ trait CatalogPage {
 	public function doAdd()
 	{
 		//
+		$req = (object) $this->sanitize((object) $_REQUEST);
 		$data = (object) $this->create();
 		$model_name = (new \ReflectionClass($this))->getShortName();
 		return $this->render(
 			"{$model_name}Editor",
 			array(
+				"request" => $req,
 				"model" => $data,
 				"permissions" => (object) [
 					"can_insert" => true,
