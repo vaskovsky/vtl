@@ -10,8 +10,9 @@
     <title>
         <?php echo htmlspecialchars(_("Account")); ?>
     </title>
-    <link rel="stylesheet" href="./css/application.css">
-    <!--[if lt IE 9]><script type="text/javascript" src="./js/application-ie8.js"></script><![endif]-->
+    <link href="./vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./vendor/twbs/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!--[if lt IE 9]><script type="text/javascript" src="./vendor/afarkas/html5shiv/dist/html5shiv.min.js"></script><script type="text/javascript" src="./vendor/foxou33/respond/dest/respond.min.js"></script><![endif]-->
 </head>
 
 <body role="document">
@@ -99,7 +100,9 @@
         <?php } ?>
 
     </div>
-    <script type="text/javascript" src="./js/application.js"></script>
+    <script src="./vendor/components/jquery/jquery.min.js"></script>
+    <script src="./vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./vendor/grimmlink/bootstrap-filestyle/bootstrap-filestyle.min.js"></script>
 </body>
 
 </html>
