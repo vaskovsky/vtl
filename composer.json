@@ -4,18 +4,11 @@
 	"license" : "LGPL-3.0",
 	"require" : {
 		"php" : ">=5.4",
-		"ext-gettext": "*",
-		"ext-mbstring": "*",
-		"twbs/bootstrap": "3.3.7",
-		"grimmlink/bootstrap-filestyle": "1.2.1",
-		"components/jquery": "3.1.1",
-		"afarkas/html5shiv": "3.7.3",
-		"foxou33/respond": "@dev"
+		"ext-gettext": "*"
 	},
 	"autoload" : {
 		"psr-4" : {
-			"Vaskovsky\\WebApplication\\" : "src",
-			"Vaskovsky\\WebApplicationExample\\" : "example"
+			"Vaskovsky\\WebApplication\\" : "src"
 		}
 	}
 }

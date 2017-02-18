@@ -2,9 +2,12 @@
 
 Minimalistic web application framework.
 
-[API Documentation](http://vaskovsky.net/web-application/annotated.html)
+[API documentation](http://vaskovsky.net/web-application/annotated.html)
+
+[Web application example](https://github.com/vaskovsky/web-application-example)
 
 [Source code](https://github.com/vaskovsky/web-application)
+
 
 ## License
 
@@ -22,4 +25,4 @@ Lesser General Public License for more details.
 
 You should have received a copy of the GNU Lesser General Public
 License along with this library. If not, see
-<http://www.gnu.org/licenses/>
+<http://vaskovsky.net/web-application/md_LICENSE.html>
