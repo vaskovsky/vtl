@@ -14,13 +14,13 @@
 // You should have received a copy of the GNU Lesser General Public
 // License along with this file. If not, see
 // <http://www.gnu.org/licenses/>
-namespace Vaskovsky\WebApplication;
+namespace AVaskovsky\WebApplication;
 /**
  * An abstract page.
  *
  * @author Alexey Vaskovsky
  */
-abstract class Page
+abstract class AbstractPage
 {
 	/**
 	 * Handles a server request and displays this page.
@@ -77,7 +77,7 @@ abstract class Page
 		putenv("LC_ALL=" . $locale);
 		setlocale(LC_ALL, $locale);
 		$domain = "messages";
-		bindtextdomain($domain, $this->getFile("locale"));
+		bindtextdomain($domain, $this->getApplicationFile("locale"));
 		textdomain($domain);
 	}
 	/**
@@ -114,7 +114,7 @@ abstract class Page
 			http_response_code($code);
 		extract($view_data);
 		ob_start();
-		include $this->getFile("view/$template.php");
+		include $this->getApplicationFile("view/$template.php");
 		$contents = ob_get_contents();
 		ob_end_clean();
 		return $contents;
@@ -195,7 +195,7 @@ abstract class Page
 	 *
 	 * @throws InvalidArgumentException if `$directory` is empty.
 	 */
-	protected final function setApplicationPath($directory)
+	protected final function setApplicationDirectory($directory)
 	{
 		// directory: -empty
 		if (! is_string($directory) || empty(
@@ -213,7 +213,7 @@ abstract class Page
 	 *
 	 * @throws InvalidArgumentException if `$filename` is empty.
 	 */
-	protected final function getFile($filename)
+	protected final function getApplicationFile($filename)
 	{
 		// filename: -empty
 		if (empty($filename)) {
@@ -238,7 +238,7 @@ abstract class Page
 	 *
 	 * @throws InvalidArgumentException if `$path` is null.
 	 */
-	protected final function getURL($path)
+	protected final function getApplicationURL($path)
 	{
 		// filename: -null
 		if (! is_string($path)) {
@@ -314,18 +314,18 @@ abstract class Page
 	/**
 	 * Sets an authorization to use with this page.
 	 *
-	 * @param Authorization $auth
+	 * @param AbstractAuthorization $auth
 	 *        	is an authorization.
 	 *
 	 * @throws InvalidArgumentException if `$auth` is null.
 	 */
-	protected final function setAuthorization(Authorization $auth)
+	protected final function setAuthorization(AbstractAuthorization $auth)
 	{
 		// auth: -null @prototype
 		$this->auth = $auth;
 	}
 	/**
-	 * Returns an Authorization object; never null.
+	 * Returns an AbstractAuthorization object; never null.
 	 *
 	 * @throws PDOException if `$this->getPDO()` throws.
 	 */

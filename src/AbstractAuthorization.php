@@ -14,13 +14,13 @@
 // You should have received a copy of the GNU Lesser General Public
 // License along with this file. If not, see
 // <http://www.gnu.org/licenses/>
-namespace Vaskovsky\WebApplication;
+namespace AVaskovsky\WebApplication;
 /**
  * An authorization.
  *
  * @author Alexey Vaskovsky
  */
-interface Authorization
+interface AbstractAuthorization
 {
 	/**
 	 * Performs authorization.

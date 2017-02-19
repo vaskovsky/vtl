@@ -14,12 +14,12 @@
 // You should have received a copy of the GNU Lesser General Public
 // License along with this file. If not, see
 // <http://www.gnu.org/licenses/>
-namespace Vaskovsky\WebApplication;
+namespace AVaskovsky\WebApplication;
 /**
  * Catalog page pattern.
  *
- * @class Vaskovsky::WebApplication::CatalogPage
- * @extends Vaskovsky::WebApplication::Page
+ * @class AVaskovsky::WebApplication::CatalogPage
+ * @extends AVaskovsky::WebApplication::AbstractPage
  *
  * @author Alexey Vaskovsky
  */
@@ -27,13 +27,13 @@ namespace Vaskovsky\WebApplication;
  * Returns an associative array that contains an initial model data; never null.
  *
  * @protected @fn create()
- * @memberof Vaskovsky::WebApplication::CatalogPage
+ * @memberof AVaskovsky::WebApplication::CatalogPage
  */
 /**
  * Sanitizes a model data.
  *
  * @protected @fn sanitize($x)
- * @memberof Vaskovsky::WebApplication::CatalogPage
+ * @memberof AVaskovsky::WebApplication::CatalogPage
  *
  * @param object $x
  *        	is an object that contains a model data; never null.
@@ -44,7 +44,7 @@ namespace Vaskovsky\WebApplication;
  * Validates a model data to update model.
  *
  * @protected @fn validateUpdate($x)
- * @memberof Vaskovsky::WebApplication::CatalogPage
+ * @memberof AVaskovsky::WebApplication::CatalogPage
  *
  * @param object $x
  *        	is an object that contains a sanitized model data; never null.
@@ -58,7 +58,7 @@ namespace Vaskovsky\WebApplication;
  * The default implementation uses `$this->validateUpdate($x)`.
  *
  * @protected @fn validateInsert($x)
- * @memberof Vaskovsky::WebApplication::CatalogPage
+ * @memberof AVaskovsky::WebApplication::CatalogPage
  *
  * @param object $x
  *        	is an object that contains a sanitized model data; never null.
@@ -70,7 +70,7 @@ namespace Vaskovsky\WebApplication;
  * Validates primary key in a model.
  *
  * @protected @fn validateKey($x)
- * @memberof Vaskovsky::WebApplication::CatalogPage
+ * @memberof AVaskovsky::WebApplication::CatalogPage
  *
  * @param object $x
  *        	is an object that contains a sanitized model data; never null.
@@ -83,7 +83,7 @@ namespace Vaskovsky\WebApplication;
  * null.
  *
  * @protected @fn select($x)
- * @memberof Vaskovsky::WebApplication::CatalogPage
+ * @memberof AVaskovsky::WebApplication::CatalogPage
  *
  * @param object $x
  *        	is an object that contains a sanitized model data; never null.
@@ -93,7 +93,7 @@ namespace Vaskovsky\WebApplication;
  * specified key is not found.
  *
  * @protected @fn get($x)
- * @memberof Vaskovsky::WebApplication::CatalogPage
+ * @memberof AVaskovsky::WebApplication::CatalogPage
  *
  * @param object $x
  *        	is an object that contains a sanitized model data with the valid
@@ -103,7 +103,7 @@ namespace Vaskovsky\WebApplication;
  * Inserts a new model in the database.
  *
  * @protected @fn insert($x)
- * @memberof Vaskovsky::WebApplication::CatalogPage
+ * @memberof AVaskovsky::WebApplication::CatalogPage
  *
  * @param object $x
  *        	is an object that contains a valid model data; never null.
@@ -112,7 +112,7 @@ namespace Vaskovsky\WebApplication;
  * Updates a model in the database.
  *
  * @protected @fn update($x)
- * @memberof Vaskovsky::WebApplication::CatalogPage
+ * @memberof AVaskovsky::WebApplication::CatalogPage
  *
  * @param object $x
  *        	is an object that contains a valid model data; never null.
@@ -121,7 +121,7 @@ namespace Vaskovsky\WebApplication;
  * Deletes a model from the database.
  *
  * @protected @fn delete($x)
- * @memberof Vaskovsky::WebApplication::CatalogPage
+ * @memberof AVaskovsky::WebApplication::CatalogPage
  *
  * @param object $x
  *        	is an object that contains a sanitized model data with the valid
@@ -131,7 +131,7 @@ namespace Vaskovsky\WebApplication;
  * The SELECT action.
  *
  * @public @fn doSelect()
- * @memberof Vaskovsky::WebApplication::CatalogPage
+ * @memberof AVaskovsky::WebApplication::CatalogPage
  *
  * @return a string; never null.
  */
@@ -139,7 +139,7 @@ namespace Vaskovsky\WebApplication;
  * The GET action.
  *
  * @public @fn doGet()
- * @memberof Vaskovsky::WebApplication::CatalogPage
+ * @memberof AVaskovsky::WebApplication::CatalogPage
  *
  * @return a string; never null.
  */
@@ -147,7 +147,7 @@ namespace Vaskovsky\WebApplication;
  * The ADD action.
  *
  * @public @fn doAdd()
- * @memberof Vaskovsky::WebApplication::CatalogPage
+ * @memberof AVaskovsky::WebApplication::CatalogPage
  *
  * @return a string; never null.
  */
@@ -155,7 +155,7 @@ namespace Vaskovsky\WebApplication;
  * The INSERT action.
  *
  * @public @fn doInsert()
- * @memberof Vaskovsky::WebApplication::CatalogPage
+ * @memberof AVaskovsky::WebApplication::CatalogPage
  *
  * @return a string; never null.
  */
@@ -163,7 +163,7 @@ namespace Vaskovsky\WebApplication;
  * The UPDATE action.
  *
  * @public @fn doUpdate()
- * @memberof Vaskovsky::WebApplication::CatalogPage
+ * @memberof AVaskovsky::WebApplication::CatalogPage
  *
  * @return a string; never null.
  */
@@ -171,7 +171,7 @@ namespace Vaskovsky\WebApplication;
  * The DELETE action.
  *
  * @public @fn doDelete()
- * @memberof Vaskovsky::WebApplication::CatalogPage
+ * @memberof AVaskovsky::WebApplication::CatalogPage
  *
  * @return a string; never null.
  */

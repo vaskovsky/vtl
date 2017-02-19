@@ -14,13 +14,13 @@
 // You should have received a copy of the GNU Lesser General Public
 // License along with this file. If not, see
 // <http://www.gnu.org/licenses/>
-namespace Vaskovsky\WebApplication;
+namespace AVaskovsky\WebApplication;
 /**
  * Performs basic HTTP authentication and authorization.
  *
  * @author Alexey Vaskovsky
  */
-class BasicAuthorization implements Authorization
+class BasicAuthorization implements AbstractAuthorization
 {
 	/**
 	 * Creates a new instance.
@@ -61,9 +61,9 @@ class BasicAuthorization implements Authorization
 		$this->table = $table;
 	}
 	/**
-	 * @copydoc Authorization#getPasswordHash()
+	 * @copydoc AbstractAuthorization#getPasswordHash()
 	 *
-	 * @see Authorization#getPasswordHash()
+	 * @see AbstractAuthorization#getPasswordHash()
 	 */
 	public function getPasswordHash($password)
 	{
@@ -75,9 +75,9 @@ class BasicAuthorization implements Authorization
 		return password_hash($password, PASSWORD_BCRYPT);
 	}
 	/**
-	 * @copydoc Authorization#authorize()
+	 * @copydoc AbstractAuthorization#authorize()
 	 *
-	 * @see Authorization#authorize()
+	 * @see AbstractAuthorization#authorize()
 	 * @see #__construct()
 	 */
 	public function authorize($role)
@@ -123,14 +123,14 @@ class BasicAuthorization implements Authorization
 				return false;
 			$this->account = $account;
 		}
-		$roleField = "role_$role";
-		if (! isset($this->account->{$roleField})) {
+		$role_field = "role_$role";
+		if (! isset($this->account->{$role_field})) {
 			$errmsg = _("Role is not set");
-			$errmsg .= ": {$roleField}";
+			$errmsg .= ": {$role_field}";
 			$errmsg .= "; username = {$this->account->username}";
 			throw new \UnexpectedValueException($errmsg);
 		}
-		if (! $this->account->{$roleField}) {
+		if (! $this->account->{$role_field}) {
 			$this->account = null;
 			return false;
 		}
