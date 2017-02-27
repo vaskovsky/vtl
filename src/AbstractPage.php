@@ -53,11 +53,24 @@ abstract class AbstractPage
 	}
 	/**
 	 * Returns role name for this page.
+	 *
+	 * The default implementation returns short class name without 'Page'
+	 * suffix.
 	 */
 	protected function getRole()
 	{
 		//
-		return "";
+		$name = $this->getClass()->getShortName();
+		$name = preg_replace('/(_[Pp]|P)age$/', '', $name);
+		return $name;
+	}
+	/**
+	 * Returns `new \ReflectionClass($this)`.
+	 */
+	public function getClass()
+	{
+		//
+		return new \ReflectionClass($this);
 	}
 	/**
 	 * Sets a locale to use with this page.
