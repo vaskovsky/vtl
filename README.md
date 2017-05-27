@@ -1,13 +1,8 @@
-# Vaskovsky Web Application Framework
+# Vaskovsky Template Library
 
-Minimalistic web application framework.
+[API documentation](http://vaskovsky.net/vtl/annotated.html)
 
-[API documentation](http://vaskovsky.net/web-application/annotated.html)
-
-[Web application example](https://github.com/vaskovsky/web-application-example)
-
-[Source code](https://github.com/vaskovsky/web-application)
-
+[Source code](https://github.com/vaskovsky/vtl)
 
 ## License
 
@@ -25,4 +20,4 @@ Lesser General Public License for more details.
 
 You should have received a copy of the GNU Lesser General Public
 License along with this library. If not, see
-<http://vaskovsky.net/web-application/md_LICENSE.html>
+<http://vaskovsky.net/vtl/md_LICENSE.html>

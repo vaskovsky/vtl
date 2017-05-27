@@ -1,6 +1,6 @@
 {
-	"name" : "vaskovsky/web-application",
-	"description" : "Minimalistic web application framework.",
+	"name" : "vaskovsky/vtl",
+	"description" : "Vaskovsky Template Library (VTL).",
 	"license" : "LGPL-3.0",
 	"require" : {
 		"php" : ">=5.4",
@@ -8,7 +8,7 @@
 	},
 	"autoload" : {
 		"psr-4" : {
-			"AVaskovsky\\WebApplication\\" : "src"
+			"VTL\\" : "php"
 		}
 	}
 }

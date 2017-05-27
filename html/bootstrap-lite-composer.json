@@ -1,0 +1,16 @@
+{
+	"require" : {
+		"ext-pgsql": "*",
+		"twbs/bootstrap": "3.*",
+		"grimmlink/bootstrap-filestyle": "1.*",
+		"components/jquery": "3.*",
+		"afarkas/html5shiv": "3.*",
+		"foxou33/respond": "@dev",
+		"vaskovsky/vtl": "4.*"
+	},
+	"autoload" : {
+		"psr-4" : {
+			"Namespace\\" : "src"
+		}
+	}
+}
