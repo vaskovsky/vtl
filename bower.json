@@ -1,0 +1,22 @@
+{
+	"name": "vtl",
+	"description": "Vaskovsky Template Library (VTL)",
+	"authors": [
+		"Alexey Vaskovsky <alexey@vaskovsky.net>"
+	],
+	"license": "LGPL-3.0+",
+	"homepage": "https://github.com/vaskovsky/vtl",
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"vendor",
+		"composer.lock",
+		"php",
+		"example"
+	],
+	"dependencies": {
+		"jquery": "^3.2.1",
+		"bootstrap": "^3.3.7"
+	}
+}

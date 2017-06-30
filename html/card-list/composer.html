@@ -1,0 +1,239 @@
+<!--
+	Copyright © 2015, 2017 Alexey Vaskovsky.
+
+	This file is part of VTL.
+
+	VTL is free software: you can redistribute it and/or modify
+	it under the terms of the GNU Lesser General Public License
+	as published by the Free Software Foundation, either version 3
+	of the License, or (at your option) any later version.
+
+	VTL is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	GNU Lesser General Public License for more details.
+
+	You should have received a copy of the GNU Lesser General Public
+	License along with VTL. If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<!--
+		The above 3 meta tags *must* come first in the head;
+		any other head content must come *after* these tags
+	-->
+
+	<title>Card List</title>
+
+	<!-- Bootstrap core CSS -->
+	<link
+		rel="stylesheet"
+		href="./vendor/twbs/bootstrap/dist/css/bootstrap.min.css"
+	/>
+	<link
+		rel="stylesheet"
+		href="./vendor/twbs/bootstrap/dist/css/bootstrap-theme.min.css"
+	/>
+	<link rel="stylesheet" href="../../css/bootstrap-pro.css"/>
+	<style>.tab-content {max-width: 50em;}</style>
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		<script src="./vendor/afarkas/html5shiv/dist/html5shiv.min.js"></script>
+		<script src="./vendor/foxou33/respond/dest/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div class="container" role="main">
+
+		<div class="page-header">
+			<h1>Card List</h1>
+		</div>
+
+		<div class="page-header">
+			<h2>Simple Card List</h2>
+		</div>
+
+		<!--CardList-->
+		<div class="tab-content">
+			<div id="card-A1" class="tab-pane fade in active">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Card 1 Title</h3>
+					</div>
+					<div class="panel-body">
+						<p>Card 1 Content</p>
+					</div>
+					<div class="panel-footer text-right">
+						<a
+							href="#card-A2"
+							class="btn btn-default"
+							data-toggle="tab"
+						>
+							Next
+						</a>
+					</div>
+				</div>
+			</div>
+			<div id="card-A2" class="tab-pane fade">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Card 2 Title</h3>
+					</div>
+					<div class="panel-body">
+						<p>Card 2 Content</p>
+					</div>
+					<div class="panel-footer text-right">
+						<a
+							href="#card-A3"
+							class="btn btn-default"
+							data-toggle="tab"
+						>
+							Next
+						</a>
+					</div>
+				</div>
+			</div>
+			<div id="card-A3" class="tab-pane fade">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Card 3 Title</h3>
+					</div>
+					<div class="panel-body">
+						<p>Card 3 Content</p>
+					</div>
+					<div class="panel-footer text-right">
+						<a
+							href="#card-A1"
+							class="btn btn-default"
+							data-toggle="tab"
+						>
+							Back to Card 1
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/CardList-->
+
+		<div class="page-header">
+			<h2>Card List with Properties</h2>
+		</div>
+
+		<!--CardList-->
+		<div class="tab-content">
+			<div id="card-B1" class="tab-pane fade in active">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Card 1 Title</h3>
+					</div>
+					<div class="panel-body">
+						<p>Card 1 Content</p>
+					</div>
+					<ul class="list-group">
+						<li class="list-group-item">
+							<b>Property 1.1:</b>
+							Property value
+						</li>
+						<li class="list-group-item">
+							<b>Property 1.2:</b>
+							Property value
+						</li>
+						<li class="list-group-item">
+							<b>Property 1.3:</b>
+							Property value
+						</li>
+					</ul>
+					<div class="panel-footer text-right">
+						<a
+							href="#card-B2"
+							class="btn btn-default"
+							data-toggle="tab"
+						>
+							Next
+						</a>
+					</div>
+				</div>
+			</div>
+			<div id="card-B2" class="tab-pane fade">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Card 2 Title</h3>
+					</div>
+					<div class="panel-body">
+						<p>Card 2 Content</p>
+					</div>
+					<ul class="list-group">
+						<li class="list-group-item">
+							<b>Property 2.1:</b>
+							Property value
+						</li>
+						<li class="list-group-item">
+							<b>Property 2.2:</b>
+							Property value
+						</li>
+						<li class="list-group-item">
+							<b>Property 2.3:</b>
+							Property value
+						</li>
+					</ul>
+					<div class="panel-footer text-right">
+						<a
+							href="#card-B3"
+							class="btn btn-default"
+							data-toggle="tab"
+						>
+							Next
+						</a>
+					</div>
+				</div>
+			</div>
+			<div id="card-B3" class="tab-pane fade">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Card 3 Title</h3>
+					</div>
+					<div class="panel-body">
+						<p>Card 3 Content</p>
+					</div>
+					<ul class="list-group">
+						<li class="list-group-item">
+							<b>Property 3.1:</b>
+							Property value
+						</li>
+						<li class="list-group-item">
+							<b>Property 3.2:</b>
+							Property value
+						</li>
+						<li class="list-group-item">
+							<b>Property 3.3:</b>
+							Property value
+						</li>
+					</ul>
+					<div class="panel-footer text-right">
+						<a
+							href="#card-B1"
+							class="btn btn-default"
+							data-toggle="tab"
+						>
+							Back to Card 1
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/CardList-->
+
+	</div><!-- /.container -->
+
+	<!-- Bootstrap core JavaScript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="./vendor/components/jquery/jquery.min.js"></script>
+	<script	src="./vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,14 +1,18 @@
 {
 	"name" : "vaskovsky/vtl",
-	"description" : "Vaskovsky Template Library (VTL).",
-	"license" : "LGPL-3.0",
-	"require" : {
-		"php" : ">=5.4",
-		"ext-gettext": "*"
-	},
+	"description" : "Vaskovsky Template Library (VTL)",
+	"type": "library",
+	"license" : "LGPL-3.0+",
+	"authors": [
+		{
+			"name": "Alexey Vaskovsky",
+			"email": "alexey@vaskovsky.net"
+		}
+	],
 	"autoload" : {
 		"psr-4" : {
 			"VTL\\" : "php"
 		}
-	}
+	},
+	"require": {}
 }

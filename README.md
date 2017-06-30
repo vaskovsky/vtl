@@ -1,8 +1,18 @@
-# Vaskovsky Template Library
+# Vaskovsky Template Library (VTL)
 
 [API documentation](http://vaskovsky.net/vtl/annotated.html)
 
 [Source code](https://github.com/vaskovsky/vtl)
+
+## Installation
+
+* Installation using Bower
+
+		bower install vaskovsky/vtl
+
+* Installation using Composer
+
+		composer require vaskovsky/vtl
 
 ## License
 
