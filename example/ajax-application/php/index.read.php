@@ -18,16 +18,24 @@
  * License along with VTL. If not, see <http://www.gnu.org/licenses/>.
  * @file
  */
-require_once "vendor/autoload.php";
-//mb_internal_encoding("UTF-8");
-//session_start();
-
-$dbname = 'test';
-$dbuser = null;
-$dbpass = null;
-
-$dbh = new PDO("pgsql:dbname=$dbname", $dbuser, $dbpass, [
-	\PDO::ATTR_ERRMODE            => \PDO::ERRMODE_EXCEPTION,
-	\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
-	\PDO::ATTR_EMULATE_PREPARES   => false,
-]);
+namespace Example;
+try {
+	require_once "config.php";
+	$dividend = (int) trim(@$_GET["dividend"]);
+	$divisor = (int) trim(@$_GET["divisor"]);
+	if($dividend == 0) $dividend = rand(1, 100);
+	if($divisor == 0) $divisor = rand(1, 10);
+	$quotient = floor($dividend / $divisor);
+	$remainder = $dividend % $divisor;
+	header("Content-Type: application/json");
+	echo json_encode([
+		"dividend" => $dividend,
+		"divisor" => $divisor,
+		"quotient" => $quotient,
+		"remainder" => $remainder
+	]);
+} catch(\Exception $ex) {
+	http_response_code(500);
+	header("Content-Type: text/plain");
+	die($ex->getMessage());
+}

@@ -6,13 +6,13 @@
 
 ## Installation
 
-* Installation using Bower
-
-		bower install vaskovsky/vtl
-
 * Installation using Composer
 
 		composer require vaskovsky/vtl
+
+* Installation using Bower (front end only)
+
+		bower install vaskovsky/vtl
 
 ## License
 

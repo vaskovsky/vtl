@@ -19,6 +19,8 @@
  * @file
  */
 require_once "vendor/autoload.php";
+//mb_internal_encoding("UTF-8");
+//session_start();
 
 $dbname = 'test';
 $dbuser = null;
@@ -29,3 +31,5 @@ $dbh = new \PDO("pgsql:dbname=$dbname", $dbuser, $dbpass, [
 	\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
 	\PDO::ATTR_EMULATE_PREPARES   => false,
 ]);
+
+
