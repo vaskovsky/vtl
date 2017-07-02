@@ -11,9 +11,10 @@
 		"node_modules",
 		"bower_components",
 		"vendor",
-		"composer.lock",
-		"php",
-		"example"
+		"/example",
+		"/html",
+		"/php",
+		"/composer.json"
 	],
 	"dependencies": {
 		"jquery": "^3.2.1",

@@ -14,5 +14,14 @@
 			"VTL\\" : "php"
 		}
 	},
+	"archive": {
+		"exclude": [
+			"/css",
+			"/example",
+			"/html",
+			"/js",
+			"/bower.json"
+		]
+	},
 	"require": {}
 }

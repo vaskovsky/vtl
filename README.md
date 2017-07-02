@@ -1,20 +1,49 @@
 # Vaskovsky Template Library (VTL)
 
-[API documentation](http://vaskovsky.net/vtl/annotated.html)
+## System Requirements
 
-[Source code](https://github.com/vaskovsky/vtl)
+* Git 2.1+
+* Bower 1.7+
+* Composer 1.4+
+* GNU Make 4.0+
 
 ## Installation
 
-* Installation using Composer
+1. To get all libraries and templates use Git:
+
+		git clone https://github.com/vaskovsky/vtl
+
+2. To get front end libraries only (js, css) use Bower:
+
+		bower install vtl
+
+3. To get back end libraries only (php) use Composer:
 
 		composer require vaskovsky/vtl
 
-* Installation using Bower (front end only)
+## Contents
 
-		bower install vaskovsky/vtl
+* `css`:	CSS libraries.
 
-## License
+* `js`:		JavaScript libraries.
+
+* `php`:	PHP libraries.
+
+	[See API documentation](http://vaskovsky.net/vtl/annotated.html).
+
+* `html`:	HTML templates.
+
+	Each template has `Makefile`.
+
+	To build template run `make`.
+
+* `example`:	Project templates.
+
+	Each template has `Makefile`.
+
+	To build template run `make`.
+
+## License LGPL-3.0+
 
 Copyright © 2017 Alexey Vaskovsky.
 
