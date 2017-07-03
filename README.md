@@ -9,17 +9,13 @@
 
 ## Installation
 
-1. To get all libraries and templates use Git:
+1. To install all libraries and templates use Composer:
 
-		git clone https://github.com/vaskovsky/vtl
+		composer require vaskovsky/vtl
 
 2. To get front end libraries only (js, css) use Bower:
 
 		bower install vtl
-
-3. To get back end libraries only (php) use Composer:
-
-		composer require vaskovsky/vtl
 
 ## Contents
 
@@ -28,20 +24,13 @@
 * `js`:		JavaScript libraries.
 
 * `php`:	PHP libraries.
-
 	[See API documentation](http://vaskovsky.net/vtl/annotated.html).
 
 * `html`:	HTML templates.
-
-	Each template has `Makefile`.
-
-	To build template run `make`.
+	Each template has `Makefile`. To build template run `make`.
 
 * `example`:	Project templates.
-
-	Each template has `Makefile`.
-
-	To build template run `make`.
+	Each template has `Makefile`. To build template run `make`.
 
 ## License LGPL-3.0+
 
