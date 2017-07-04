@@ -22,3 +22,4 @@
 .panel-footer .pager {margin: 0px;}
 .panel-footer .pagination {margin: 0px;}
 .h1-addon, .h2-addon, .h3-addon {margin-top: 20px; text-align: right;}
+.minify-width, table.property-list th {width: 1px; white-space: nowrap;}
