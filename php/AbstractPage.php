@@ -36,9 +36,9 @@ abstract class AbstractPage
 		return ApplicationContext::getInstance();
 	}
 	/**
-	 * @copydoc Database#getConnection()
+	 * @copydoc DatabaseManager#getConnection()
 	 *
-	 * @see Database#getConnection()
+	 * @see DatabaseManager#getConnection()
 	 */
 	protected final function getDatabase($dsn = "", $user = "", $password = "")
 	{
@@ -87,7 +87,7 @@ abstract class AbstractPage
 				if(!$this->authorize()) {
 					$this->getAuthentication()->signOut();
 				} else {
-					echo call_user_method($method, $this);
+					echo call_user_func([$this, $method]);
 				}
 			} catch (\Exception $ex) {
 				echo $this->renderException($ex);
