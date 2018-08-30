@@ -1,0 +1,2 @@
+<?php
+ $GLOBALS["DBH"] = new \PDO("pgsql:dbname=ajax_app", null, null, [ \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION, \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_LAZY, \PDO::ATTR_EMULATE_PREPARES => false, ]); 

@@ -8,16 +8,6 @@
 	"homepage": "https://github.com/vaskovsky/vtl",
 	"ignore": [
 		"**/.*",
-		"node_modules",
-		"bower_components",
-		"vendor",
-		"/example",
-		"/html",
-		"/php",
-		"/composer.json"
-	],
-	"dependencies": {
-		"jquery": "^3.2.1",
-		"bootstrap": "^3.3.7"
-	}
+		"vendor"
+	]
 }

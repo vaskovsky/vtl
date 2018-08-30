@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=true
+Exec=bash -c 'php -S 127.0.0.1:8080 -t"$(dirname "%k")"'
+Name=test
+Icon=terminal
+Name[ru_RU]=start-server
