@@ -1,19 +1,38 @@
 # Vaskovsky Template Library (VTL)
 
-## License LGPL-3.0+
+HTML templates. See [html/index.html](html/index.html)
 
-Copyright © 2017-2018 Alexey Vaskovsky.
+## Classes
 
-This library is free software; you can redistribute it and/or
-modify it under the terms of the GNU Lesser General Public
-License as published by the Free Software Foundation; either
-version 3.0 of the License, or (at your option) any later version.
+`.A4` = `.w-A4` + `.mx-auto`
 
-This library is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-Lesser General Public License for more details.
+`.btn-print` prints the page on click
 
-You should have received a copy of the GNU Lesser General Public
-License along with this library. If not, see
-<http://vaskovsky.net/vtl/md_LICENSE.html>
+`.btn-reload` refreshes the page on click
+
+`.fw-300` = `font-weight: 300`
+
+`.fw-500` = `font-weight: 500`
+
+`.text-shadow` adds `text-shadow`
+
+`.w-A4` sets the maximum width = A4 (40em, cause 40em * 12pt (font-size) =
+almost 17cm = 21cm (A4) -2cm left -2cm right)
+
+`.w-min` = `width: min-content`
+
+`.w-max` = `width: max-content`
+
+## Files
+
+`btn-print.js` implements `.btn-print`
+
+`btn-reload.js` implements `.btn-reload`
+
+`vtl.js`: all JS in one file
+
+`vtl.css`: CSS classes
+
+`style.css` = `vtl.css` + questionable style changes
+
+--------------------------------------------------------------------------------

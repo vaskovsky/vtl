@@ -1,2 +1,0 @@
-<?php
- try { $GLOBALS["ACCOUNT"] = null; if(isset($_SERVER['PHP_AUTH_USER'])) { $GLOBALS["ACCOUNT"] = pos($GLOBALS["DBH"]->query("select * from account where login = ".$GLOBALS["DBH"]->quote($_SERVER['PHP_AUTH_USER']))->fetchAll(\PDO::FETCH_OBJ)); if($GLOBALS["ACCOUNT"] && !password_verify( $_SERVER['PHP_AUTH_PW'], $GLOBALS["ACCOUNT"]->password)) $GLOBALS["ACCOUNT"] = null; } if(!$GLOBALS["ACCOUNT"]) { http_response_code(401); header("WWW-Authenticate: Basic"); die("Unauthorized"); } } catch(\Throwable $b) { http_response_code(500); die($b->getMessage()); } 

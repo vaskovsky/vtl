@@ -1,0 +1,23 @@
+{
+	"name": "vtl",
+	"version": "21.8.16",
+	"description": "Vaskovsky Template Library (VTL)",
+	"main": "vtl.js",
+	"repository":
+	{
+		"type": "git",
+		"url": "https://github.com//vaskovsky/vtl.git"
+	},
+	"author": "Alexey Vaskovsky <alexey@vaskovsky.net>",
+	"license": "MIT",
+	"devDependencies":
+	{
+		"uglify-js": "^3.14.1"
+	},
+	"files":
+	[
+		"*.css",
+		"*.js",
+		"*.md"
+	]
+}

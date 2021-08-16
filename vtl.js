@@ -1,0 +1,2 @@
+/*! Copyright © 2015-2021 Alexey Vaskovsky. Released under the MIT license */
+document.addEventListener("DOMContentLoaded",e=>{var t;for(t of document.getElementsByClassName("btn-print"))t.addEventListener("click",e=>{e.preventDefault(),window.print()})}),document.addEventListener("DOMContentLoaded",e=>{var t;for(t of document.getElementsByClassName("btn-reload"))t.addEventListener("click",e=>{e.preventDefault(),location.reload()})});
