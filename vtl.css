@@ -1,6 +1,21 @@
 /*! Copyright © 2021 Alexey Vaskovsky. Released under the MIT license */
-.A4, .w-A4 {max-width: 40em}
-.A4 {margin-left: auto; margin-right: auto}
+.A4, .w-A4 {width: 100%; max-width: 40em !important}
+.A4, .A5, .A6 {margin-left: auto; margin-right: auto}
+.A5, .w-A5 {width: 100%; max-width: 30em !important}
+.A6, .w-A6 {width: 100%; max-width: 20em !important}
+.form-floating-group > .form-floating:not(:first-child):not(:last-child) > .form-control
+	{border-radius: 0}
+.form-floating-group > .form-floating:first-child > .form-control
+{
+	border-bottom: none;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+.form-floating-group > .form-floating:last-child > .form-control
+{
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;	
+}
 .fw-300 {font-weight: 300 !important}
 .fw-500 {font-weight: 500 !important}
 .text-shadow

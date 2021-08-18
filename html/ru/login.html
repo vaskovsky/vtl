@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>login</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/roboto@4.5.0/400.css" integrity="sha256-BncgW2O+HEWkUk5wAOLrAIJiVn3eMaB1V9bhktgFXdA=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/roboto@4.5.0/500.css" integrity="sha256-hlEGk5qieGVj9llofPmUAepLn1oX+YCsbAi3LrATIaE=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha256-BYjRZhSY2ARUPcFTf5eEh3qWK58O88TM7nZet/JUNhE=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/solid.min.css" integrity="sha256-iC5YxnGkhNDaqXooBwYOGhrRbnOod1P0lKCo8kQSFks=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdb-ui-kit@3.9.0/css/mdb.min.css" integrity="sha256-z0811HlA73cDdw1Mz1Z010sXW4ofd1mgcKneV1wCLyw=" crossorigin="anonymous">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<main class="container mt-5">
+<p class="text-end">
+	<a href="../en/login.html">
+		<i class="fas fa-language"></i>
+		English
+	</a>
+</p>
+<!--=========================================================================-->
+<form action="search.html" class="modal-content A6 mb-3">
+	<div class="modal-header">
+		<h5 class="modal-title">Авторизация</h5>
+		<a href="index.html" class="btn-close"></a>
+	</div>
+	<div class="modal-body">
+		<div class="form-floating-group mb-2">
+			<div class="form-floating">
+				<input id="email" name="email" type="email"
+					placeholder="name@server.com" class="form-control">
+				<label for="email">Почта</label>
+			</div>
+			<div class="form-floating">
+				<input id="password" name="password" type="password" value=""
+					placeholder="Пароль" class="form-control">
+				<label for="password">Пароль</label>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<div class="form-check me-auto">
+			<input id="remember" type="checkbox" class="form-check-input">
+			<label for="remember" class="form-check-label">
+				Запомнить меня
+			</label>
+		</div>
+		<button type="submit" class="btn btn-lg btn-light">
+			<i class="fas me-1 fa-sign-in-alt"></i>
+			Войти
+		</button>
+	</div>
+</form>
+<!--=========================================================================-->
+<form action="search.html" class="modal-content A6 mb-3">
+	<div class="modal-header">
+		<h5 class="modal-title">Авторизация</h5>
+		<a href="index.html" class="btn-close"></a>
+	</div>
+	<div class="modal-body">
+		<div class="form-floating-group mb-2">
+			<div class="form-floating">
+				<input id="login" name="login" type="text"
+					placeholder="name@server.com" class="form-control">
+				<label for="login">Логин</label>
+			</div>
+			<div class="form-floating">
+				<input id="password" name="password" type="password" value=""
+					placeholder="Пароль" class="form-control">
+				<label for="password">Пароль</label>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button type="submit" class="btn btn-light">
+			<i class="fas me-1 fa-sign-in-alt"></i>
+			Войти
+		</button>
+	</div>
+</form>
+<!--=========================================================================-->
+</main>
+<script src="https://cdn.jsdelivr.net/npm/mdb-ui-kit@3.9.0/js/mdb.min.js" integrity="sha256-RxzwU7tVyh80VzsnaZAKCDg7Nqj8EZXgCmb/O8GhSt4=" crossorigin="anonymous"></script>
+</body>
+</html>
