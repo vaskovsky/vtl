@@ -10,6 +10,8 @@ HTML templates. See `html/README.html`
 
 `.A6` = `.w-A6` + `.mx-auto`
 
+`.btn-back` back to previous page on click
+
 `.btn-print` prints the page on click
 
 `.btn-reload` refreshes the page on click
@@ -51,16 +53,16 @@ almost 85mm = 105mm (A6) -10mm left -10mm right)
 
 CSS:
 ```
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@21.8.18/vtl.css" integrity="sha256-RGFplJfLoo/ex5CFZlCfM4uaIZsG77c2wl6Codgm4bA=" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@$VERSION/vtl.css" integrity="sha256-$SHA512" crossorigin="anonymous"/>
 ```
 or
 ```
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@21.8.18/style.css" integrity="sha256-ege8EqBnNkCJlLMRpIk7r9i/QAuORB0sQuz3szCWEGs=" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@$VERSION/style.css" integrity="sha256-$SHA512" crossorigin="anonymous"/>
 ```
 
 JS:
 ```
-<script src="https://cdn.jsdelivr.net/npm/vtl@21.8.18/vtl.js" integrity="sha256-03d6QBVCar3TIv6/vJHql0Advy5D7+mL091/xSscjHE=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vtl@$VERSION/vtl.js" integrity="sha256-$SHA512" crossorigin="anonymous"></script>
 ```
 
 --------------------------------------------------------------------------------
