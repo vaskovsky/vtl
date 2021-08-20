@@ -53,16 +53,16 @@ almost 85mm = 105mm (A6) -10mm left -10mm right)
 
 CSS:
 ```
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@$VERSION/vtl.css" integrity="sha256-$SHA512" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@21.8.20/vtl.css" integrity="sha256-RGFplJfLoo/ex5CFZlCfM4uaIZsG77c2wl6Codgm4bA=" crossorigin="anonymous"/>
 ```
 or
 ```
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@$VERSION/style.css" integrity="sha256-$SHA512" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@21.8.20/style.css" integrity="sha256-ege8EqBnNkCJlLMRpIk7r9i/QAuORB0sQuz3szCWEGs=" crossorigin="anonymous"/>
 ```
 
 JS:
 ```
-<script src="https://cdn.jsdelivr.net/npm/vtl@$VERSION/vtl.js" integrity="sha256-$SHA512" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vtl@21.8.20/vtl.js" integrity="sha256-YMZBbXGMyOhMrWcim6SfFRcLr2oa1FIw/8rKQQYWYac=" crossorigin="anonymous"></script>
 ```
 
 --------------------------------------------------------------------------------
