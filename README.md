@@ -39,11 +39,16 @@ almost 85mm = 105mm (A6) -10mm left -10mm right)
 
 ## Files
 
+`btn-back.js` implements `.btn-back`
+
 `btn-print.js` implements `.btn-print`
 
 `btn-reload.js` implements `.btn-reload`
 
 `vtl.js`: all JS in one file
+
+`vtl.ie6.js`: IE6 compatible version of `vtl.js`
+(uses id instead of class for `btn-back`, `btn-print`, `btn-reload`)
 
 `vtl.css`: CSS classes
 
