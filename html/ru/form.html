@@ -20,6 +20,36 @@
 		English
 	</a>
 </p>
+<div class="d-grid gap-3">
+<!--=========================================================================-->
+<form class="card" action="table.html">
+<div class="card-body">
+	<div class="row g-3 mb-3">
+		<label class="col-sm-2 col-form-label">
+			Название поля
+		</label>
+		<div class="col-sm-10">
+			<input name="ATTR" type="text" class="form-control"/>
+		</div>
+	</div>
+	<div class="row g-3">
+		<div class="col-sm-10 offset-sm-2">
+			<div class="btn-group">
+				<button id="save" type="submit"
+					class="btn btn-lg btn-light">
+					<i class="fas me-1 fa-save"></i>
+					Сохранить
+				</button>
+				<button id="cancel" name="cancel" type="submit"
+					class="btn btn-lg btn-light">
+					<i class="fas me-1 fa-times"></i>
+					Отмена
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+</form>
 <!--=========================================================================-->
 <form class="card" action="table.html">
 <div class="card-body">
@@ -52,12 +82,18 @@
 					<i class="fas me-1 fa-trash"></i>
 					Удалить
 				</button>
+				<button id="cancel" name="cancel" type="submit"
+					class="btn btn-lg btn-light">
+					<i class="fas me-1 fa-times"></i>
+					Отмена
+				</button>
 			</div>
 		</div>
 	</div>
 </div>
 </form>
 <!--=========================================================================-->
+</div>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/mdb-ui-kit@3.9.0/js/mdb.min.js" integrity="sha256-RxzwU7tVyh80VzsnaZAKCDg7Nqj8EZXgCmb/O8GhSt4=" crossorigin="anonymous"></script>
 </body>
