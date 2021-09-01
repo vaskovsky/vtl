@@ -1,7 +1,7 @@
 /*! Copyright © 2021 Alexey Vaskovsky. Released under the MIT license */
-a {color: mediumslateblue}
-a:hover, a:focus {color: slateblue}
-a:active {color: orangered}
+a {color: mediumslateblue; text-decoration: none}
+a:hover, a:focus {color: slateblue; text-decoration: none}
+a:active {color: orangered; text-decoration: none}
 td, th {vertical-align: middle}
 .form-control, .input-group > .form-control:focus, .form-control:focus
 	{box-shadow: inset 0 1px 2px rgba(0,0,0,.075)}

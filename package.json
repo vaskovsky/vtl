@@ -6,7 +6,7 @@
 	"repository":
 	{
 		"type": "git",
-		"url": "https://github.com//vaskovsky/vtl.git"
+		"url": "https://github.com/vaskovsky/vtl.git"
 	},
 	"author": "Alexey Vaskovsky <alexey@vaskovsky.net>",
 	"license": "MIT",

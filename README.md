@@ -45,7 +45,9 @@ almost 85mm = 105mm (A6) -10mm left -10mm right)
 
 `btn-reload.js` implements `.btn-reload`
 
-`vtl.js`: all JS in one file
+`datepicker3.js` is the date picker configuration for Bootstrap 3
+
+`vtl.js`: all JS in one file (except `datepicker3.js`)
 
 `vtl.ie6.js`: IE6 compatible version of `vtl.js`
 (uses id instead of class for `btn-back`, `btn-print`, `btn-reload`)
@@ -58,16 +60,16 @@ almost 85mm = 105mm (A6) -10mm left -10mm right)
 
 CSS:
 ```
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@$VERSION/vtl.css" integrity="sha256-$SHA512" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@$VERSION/vtl.css" integrity="sha256-$SHA256" crossorigin="anonymous"/>
 ```
 or
 ```
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@$VERSION/style.css" integrity="sha256-$SHA512" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@$VERSION/style.css" integrity="sha256-$SHA256" crossorigin="anonymous"/>
 ```
 
 JS:
 ```
-<script src="https://cdn.jsdelivr.net/npm/vtl@$VERSION/vtl.js" integrity="sha256-$SHA512" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vtl@$VERSION/vtl.js" integrity="sha256-$SHA256" crossorigin="anonymous"></script>
 ```
 
 --------------------------------------------------------------------------------
