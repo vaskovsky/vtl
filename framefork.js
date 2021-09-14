@@ -14,11 +14,8 @@ const VTL = new class
 		this._parser = new DOMParser;
 		this._serializer = new XMLSerializer;
 		this._reader = new FileReader;
-		this.isLocal = "file:" == location.protocol;
-		this.servicePrefix = "";
-		this.serviceSuffix = ".php";
 		this.defaults = {};
-		this.queryString = location.hash? location.hash.substring(1): "";
+		this.serverAPI = "*.php";
 		this.server = "";
 		const serverLink = document.getElementById("server");
 		if(serverLink)
@@ -26,30 +23,43 @@ const VTL = new class
 			this.server = serverLink.getAttribute("href");
 			if(this.server && !/\/$/.test(this.server)) this.server += "/";
 		}
-		if(this.queryString)
-			window.addEventListener("DOMContentLoaded", event =>
-			{
-				const list = document.querySelectorAll(
-					"#if-no-query-string, .if-no-query-string");
-				for(const element of list) element.style.display = "none";
-			});
+		this.isLocal = "file:" == location.protocol && "" == this.server;
+		this.queryString = location.hash? location.hash.substring(1): "";
+		this.ready(this.updateQueryString);
 		console.log("server:", this.server || location.origin);
 		console.log("query:", this.queryString);
 	}
-	setDefault(tagName, attributes)
+	ready(eventListener)
 	{
-		this.defaults[tagName] = attributes;
+		const isReady = "loading" !== document.readyState;
+		if(eventListener)
+		{
+			window.addEventListener("hashchange", eventListener);
+			if(isReady)
+				eventListener(null);
+			else
+				window.addEventListener("DOMContentLoaded", eventListener);
+		}
+		return isReady;
 	}
-	getServiceURL(service)
+	updateQueryString()
 	{
-		return this.server + this.servicePrefix + service + this.serviceSuffix +
-			"?" + this.queryString;
+		VTL.queryString = location.hash? location.hash.substring(1): "";
+		const list = document.querySelectorAll(
+			"#if-no-query-string, .if-no-query-string");
+		for(const element of list)
+			element.style.display = VTL.queryString?"none":"block";
 	}
-	fetch(service, init)
+	setDefaults(entity, attributes)
+	{
+		this.defaults[entity] = attributes;
+	}
+	fetch(entity, init)
 	{
 		return new Promise(resolve =>
 		{
-			const url = this.getServiceURL(service);
+			const url = this.server + this.serverAPI.replace("*", entity) +
+				"?" + this.queryString;
 			window.fetch(url, init)
 			.then(response =>
 			{
@@ -66,43 +76,40 @@ const VTL = new class
 			});
 		});
 	}
-	async get(service)
+	async get(entity)
 	{
 		if(this.isLocal)
 		{
-			console.log("get:", service, "(local)");
-			const stub = document.getElementById(service + "_data");
-			if(stub) return stub.innerHTML;
-			else throw new Error("no "+service + "_data @" + location.pathname);
+			console.log("get", entity, "(local)");
+			let stub = document.getElementById(entity + "_data#" +
+				this.queryString);
+			if(!stub)
+				stub = document.getElementById(entity + "_data");
+			if(!stub)
+				throw new Error("no "+ entity + "_data @" +
+					location.pathname);
+			return stub.innerHTML;
 		}
 		else
 		{
-			console.log("get:", service);
-			const response = await this.fetch(service);
+			console.log("get", entity);
+			const response = await this.fetch(entity);
 			return response.text();
 		}
 	}
-	async getJSON(service)
+	async getJSON(entity)
 	{
-		return JSON.parse(await this.get(service));
+		return JSON.parse(await this.get(entity));
 	}
-	async getXML(service)
+	async getXML(entity)
 	{
-		if("string" === typeof service)
-		{
-			const xml = await this.get(service);
-			return this.parseXML(xml);
-		}
-		else if(service instanceof Element)
-			return service;
-		else throw new Error("getXML: invalid argument: " +
-			typeof id + ": " + JSON.stringify(id));
+		return this.parseXML(await this.get(entity));
 	}
-	async post(service, data)
+	async post(entity, data)
 	{
-		console.log("post:", service, data);
+		console.log("post", entity, data);
 		if(this.isLocal) return null;
-		const response = await this.fetch(service,
+		const response = await this.fetch(entity,
 		{
 			method: "POST",
 			cache: "no-cache",
@@ -110,57 +117,81 @@ const VTL = new class
 		});
 		return response.text();
 	}
-	registerService(service)
+	createView(entity, defaults)
 	{
+		if(defaults) this.setDefaults(entity, defaults);
 		return new Promise(async resolve =>
 		{
-			const form = document.getElementById(service);
-			if(form)
+			const output = document.getElementById(entity);
+			if(output)
 			{
-				if(!this.isLocal && "FORM" == form.tagName)
+				if(!this.isLocal && "FORM" == output.tagName)
 				{
-					form.addEventListener("submit", async event =>
+					output.addEventListener("submit", async event =>
 					{
 						event.preventDefault();
-						const data = new FormData(form);
-						const href = await VTL.post(service, data);
+						const data = new FormData(output);
+						const href = await VTL.post(entity, data);
 						location.href = href;						
 					});
 				}
-				const fileinput = document.getElementById(service+"_fileinput");
+				const fileinput = document.getElementById(
+					entity + "_fileinput");
 				if(fileinput)
 					fileinput.addEventListener("input", async event =>
 					{
-						console.log("get:", service, "(file)");
+						console.log("get:", entity, "(file)");
 						event.preventDefault();
 						const data = await VTL.readFile(fileinput);
 						if(data)
 						{
 							const dataXML = this.parseXML(data);
-							VTL._renderForm(form, service, dataXML);
-							resolve(form);
+							output.innerHTML = VTL.renderView(entity, dataXML);
+							VTL.updateDataList(dataXML);
+							resolve(output);
 						}
 					});
-				const xml = await VTL.getXML(service);
-				VTL._renderForm(form, service, xml);
-				resolve(form);
+				this.ready(async () => 
+				{
+					const xml = await VTL.getXML(entity);
+					output.innerHTML = VTL.renderView(entity, xml);
+					VTL.updateDataList(xml);
+					resolve(output);
+				});
 			}
-		});		
+		});	
 	}
-	_renderForm(form, tagName, xml)
+	updateView(entity)
 	{
-		const elementList = xml.getElementsByTagName(tagName);
+		return new Promise(async resolve =>
+		{
+			const output = document.getElementById(entity);
+			if(output)
+			{
+				const xml = await VTL.getXML(entity);
+				output.innerHTML = VTL.renderView(entity, xml);
+				VTL.updateDataList(xml);
+				resolve(output);
+			}			
+		});
+	}
+	renderView(entity, dataXML)
+	{
+		const elementList = dataXML.getElementsByTagName(entity);
 		let html = "";
 		for(const element of elementList)
 			html += VTL.renderElement(element);
-		form.innerHTML = html;
-		const datalistCollection = xml.getElementsByTagName("datalist");
+		return html;
+	}
+	updateDataList(dataXML)
+	{
+		const datalistCollection = dataXML.getElementsByTagName("datalist");
 		for(const datalist of datalistCollection)
 		{
-			datalistId = datalist.getAttribute("id");
+			const datalistId = datalist.getAttribute("id");
 			if(datalistId)
 			{
-				datalistOutput = document.getElementById(datalistId);
+				const datalistOutput = document.getElementById(datalistId);
 				if(datalistOutput)
 					datalistOutput.innerHTML =
 						this.stringifyInnerXML(datalist);
@@ -169,7 +200,7 @@ const VTL = new class
 						.insertAdjacentHTML("beforeEnd",
 							this.stringifyXML(datalist));
 			}
-		}	
+		}
 	}
 	renderElement(element)
 	{
@@ -220,9 +251,9 @@ const VTL = new class
 	{
 		return this._parser.parseFromString(xml, "application/xml");
 	}
-	stringifyXML(dom)
+	stringifyXML(element)
 	{
-		return this._serializer.serializeToString(dom);
+		return this._serializer.serializeToString(element);
 	}
 	stringifyInnerXML(element)
 	{
