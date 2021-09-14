@@ -47,9 +47,11 @@ almost 85mm = 105mm (A6) -10mm left -10mm right)
 
 `datepicker3.js` is the date picker configuration for Bootstrap 3
 
+`framework.js` is a framework for AJAX applications
+
 `vtl.js`: all JS in one file (except `datepicker3.js`)
 
-`vtl.ie6.js`: IE6 compatible version of `vtl.js`
+`vtl.ie6.js`: IE6 compatible version of `btn-*.js`
 (uses id instead of class for `btn-back`, `btn-print`, `btn-reload`)
 
 `vtl.css`: CSS classes
