@@ -61,13 +61,19 @@ const VTL = new class
 			const url = this.server + this.serverAPI.replace("*", entity) +
 				"?" + this.queryString;
 			window.fetch(url, init)
-			.then(response =>
+			.then(async response =>
 			{
-				if(ok) resolve(response);
+				if(response.ok) resolve(response);
+				else if(401 == response.status)
+				{
+					const href = await response.text();
+					location.href = href +
+						"#return=" + encodeURIComponent(location.href);
+				}
 				else
 				{
-					const message = response.statusText || response.status;
-					VTL.error("HTTP", message, url);
+					const message = await response.text();
+					VTL.error("HTTP" + response.status, message, url);
 				}
 			})
 			.catch(ex =>
@@ -117,6 +123,33 @@ const VTL = new class
 		});
 		return response.text();
 	}
+	addSubmitListener(form, entity)
+	{
+		form.addEventListener("submit", async event =>
+		{
+			event.preventDefault();
+			const error = document.getElementById("error");
+			if(error) error.textContent = "";
+			const data = new FormData(form);
+			const href = await VTL.post(entity, data);
+			location.href = href;						
+		});
+	}
+	createForm(entity)
+	{
+		return new Promise(async resolve =>
+		{
+			const form = document.getElementById(entity);
+			if(form)
+			{
+				if(!this.isLocal && "FORM" == form.tagName)
+				{
+					VTL.addSubmitListener(form, entity);
+					resolve(await this.get(entity));
+				}				
+			}		
+		});
+	}
 	createView(entity, defaults)
 	{
 		if(defaults) this.setDefaults(entity, defaults);
@@ -126,15 +159,7 @@ const VTL = new class
 			if(output)
 			{
 				if(!this.isLocal && "FORM" == output.tagName)
-				{
-					output.addEventListener("submit", async event =>
-					{
-						event.preventDefault();
-						const data = new FormData(output);
-						const href = await VTL.post(entity, data);
-						location.href = href;						
-					});
-				}
+					VTL.addSubmitListener(form, entity);
 				const fileinput = document.getElementById(
 					entity + "_fileinput");
 				if(fileinput)
@@ -156,6 +181,16 @@ const VTL = new class
 					const xml = await VTL.getXML(entity);
 					output.innerHTML = VTL.renderView(entity, xml);
 					VTL.updateDataList(xml);
+					const btnCancelList = document.querySelectorAll(
+						"#btn-cancel, .btn-cancel");
+					for(let btnCancel of btnCancelList)
+					{
+						btnCancel.addEventListener("click", event =>
+						{
+							event.preventDefault();
+							history.back();
+						});
+					}
 					resolve(output);
 				});
 			}
@@ -265,7 +300,10 @@ const VTL = new class
 	error(type, message, at)
 	{
 		const text = `${type}: ${message}\n@${at}`;
+		const error = document.getElementById("error");
 		console.error(text);
+		if(error) error.textContent = message;
+		else alert(message);
 	}
 };
 VTL.FALSE_HTML_ATTRIBUTES =new RegExp('('+

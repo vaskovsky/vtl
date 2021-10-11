@@ -2,7 +2,13 @@
 
 HTML templates. See `html/README.html`
 
-## Classes
+## JS API
+
+`VTL.createView(entity: string)` creates a view for the `entity`.
+
+`VTL.createForm(entity: string)` creates a form for the `entity`.
+
+## CSS Classes
 
 `.A4` = `.w-A4` + `.mx-auto`
 
@@ -62,16 +68,16 @@ almost 85mm = 105mm (A6) -10mm left -10mm right)
 
 CSS:
 ```
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@21.9.15/vtl.css" integrity="sha256-RGFplJfLoo/ex5CFZlCfM4uaIZsG77c2wl6Codgm4bA=" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@21.10.11/vtl.css" integrity="sha256-RGFplJfLoo/ex5CFZlCfM4uaIZsG77c2wl6Codgm4bA=" crossorigin="anonymous"/>
 ```
 or
 ```
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@21.9.15/style.css" integrity="sha256-G2r2FxQ7L6IZI0qvEbmSSYZ0FtnNQjb+bEA/ljCmWtE=" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@21.10.11/style.css" integrity="sha256-G2r2FxQ7L6IZI0qvEbmSSYZ0FtnNQjb+bEA/ljCmWtE=" crossorigin="anonymous"/>
 ```
 
 JS:
 ```
-<script src="https://cdn.jsdelivr.net/npm/vtl@21.9.15/vtl.js" integrity="sha256-O2UAOuMzLXMDvlxDCBzy72XZJneu0kAYUwLxl6OIEas=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vtl@21.10.11/vtl.js" integrity="sha256-Vxu/59AFejJNlsF3ER5uumY15fopqDMi/GwIjzelr6Q=" crossorigin="anonymous"></script>
 ```
 
 --------------------------------------------------------------------------------
