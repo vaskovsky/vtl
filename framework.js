@@ -159,7 +159,7 @@ const VTL = new class
 			if(output)
 			{
 				if(!this.isLocal && "FORM" == output.tagName)
-					VTL.addSubmitListener(form, entity);
+					VTL.addSubmitListener(output, entity);
 				const fileinput = document.getElementById(
 					entity + "_fileinput");
 				if(fileinput)

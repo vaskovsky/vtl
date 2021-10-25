@@ -68,16 +68,16 @@ almost 85mm = 105mm (A6) -10mm left -10mm right)
 
 CSS:
 ```
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@21.10.11/vtl.css" integrity="sha256-RGFplJfLoo/ex5CFZlCfM4uaIZsG77c2wl6Codgm4bA=" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@21.10.25/vtl.css" integrity="sha256-RGFplJfLoo/ex5CFZlCfM4uaIZsG77c2wl6Codgm4bA=" crossorigin="anonymous"/>
 ```
 or
 ```
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@21.10.11/style.css" integrity="sha256-G2r2FxQ7L6IZI0qvEbmSSYZ0FtnNQjb+bEA/ljCmWtE=" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@21.10.25/style.css" integrity="sha256-G2r2FxQ7L6IZI0qvEbmSSYZ0FtnNQjb+bEA/ljCmWtE=" crossorigin="anonymous"/>
 ```
 
 JS:
 ```
-<script src="https://cdn.jsdelivr.net/npm/vtl@21.10.11/vtl.js" integrity="sha256-Vxu/59AFejJNlsF3ER5uumY15fopqDMi/GwIjzelr6Q=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vtl@21.10.25/vtl.js" integrity="sha256-lyKy2VItGuQIlaRePsRC+gpbp6iH+ZS8mzm5GX0xofI=" crossorigin="anonymous"></script>
 ```
 
 --------------------------------------------------------------------------------
