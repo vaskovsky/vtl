@@ -216,6 +216,12 @@ const VTL = new class
 		let html = "";
 		for(const element of elementList)
 			html += VTL.renderElement(element);
+		if("" == html)
+		{
+			const no_data_view = document.getElementById(
+				"no_" + entity + "_view");
+			if(no_data_view) html = no_data_view.innerHTML;
+		}
 		return html;
 	}
 	updateDataList(dataXML)
