@@ -253,17 +253,15 @@ const VTL = new class
 		for(const attribute in this.defaults[element.tagName])
 			variables[attribute] = this.defaults[element.tagName][attribute];
 		for(const attribute of element.parentElement.attributes)
-			variables[attribute.name] = attribute.value;
+			variables[attribute.name] = this.escapeHTML(attribute.value);
 		for(const attribute of element.attributes)
-			variables[attribute.name] = attribute.value;
+			variables[attribute.name] = this.escapeHTML(attribute.value);
 		for(const child of element.children)
 		{
 			if(variables[child.tagName])
-				variables[child.tagName] +=
-					this.renderElement(child);
+				variables[child.tagName] += this.renderElement(child);
 			else
-				variables[child.tagName] =
-					this.renderElement(child);
+				variables[child.tagName] = this.renderElement(child);
 		}
 		let html = view.innerHTML;
 		html = html.replace(/\$([A-Za-z0-9_\-]+)/g,
@@ -287,7 +285,11 @@ const VTL = new class
 				reject(ex);
 			}
 		});
-	}	
+	}
+	escapeHTML(str)
+	{
+		return str.replace(/["'&<>]/g, ch => "&#" + ch.charCodeAt(0) + ";");
+	}
 	parseXML(xml)
 	{
 		return this._parser.parseFromString(xml, "application/xml");
