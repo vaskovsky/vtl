@@ -137,18 +137,9 @@ const VTL = new class
 	}
 	createForm(entity)
 	{
-		return new Promise(async resolve =>
-		{
-			const form = document.getElementById(entity);
-			if(form)
-			{
-				if(!this.isLocal && "FORM" == form.tagName)
-				{
-					VTL.addSubmitListener(form, entity);
-					resolve(await this.get(entity));
-				}				
-			}		
-		});
+		const form = document.getElementById(entity);
+		if(form && !this.isLocal && "FORM" == form.tagName)
+			VTL.addSubmitListener(form, entity);		
 	}
 	createView(entity, defaults)
 	{
