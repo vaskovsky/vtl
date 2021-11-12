@@ -137,9 +137,15 @@ const VTL = new class
 	}
 	createForm(entity)
 	{
-		const form = document.getElementById(entity);
-		if(form && !this.isLocal && "FORM" == form.tagName)
-			VTL.addSubmitListener(form, entity);		
+		return new Promise(async resolve =>
+		{
+			const form = document.getElementById(entity);
+			if(form && !this.isLocal && "FORM" == form.tagName)
+			{
+				VTL.addSubmitListener(form, entity);
+				resolve(form);
+			}		
+		});		
 	}
 	createView(entity, defaults)
 	{
