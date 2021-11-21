@@ -16,6 +16,7 @@ const VTL = new class
 		this.defaults = {};
 		this.serverAPI = "*.php";
 		this.server = "";
+		this.listeners = [];
 		const serverLink = document.getElementById("server");
 		if(serverLink)
 		{
@@ -118,6 +119,23 @@ const VTL = new class
 			body: data
 		});
 		return response.text();
+	}
+	on(eventType, selector, handler)
+	{
+		this.listeners.push([eventType, selector, handler]);
+		const eventTargets = document.querySelectorAll(selector);
+			for(const eventTarget of eventTargets)
+				eventTarget.addEventListener(eventType, handler);
+	}
+	handleEvents(newElementHTML)
+	{
+		for(const listener of this.listeners)
+		{
+			const [eventType, selector, handler] = listener;
+			const eventTargets = newElementHTML.querySelectorAll(selector);
+			for(const eventTarget of eventTargets)
+				eventTarget.addEventListener(eventType, handler);
+		}
 	}
 	createForm(component_id)
 	{
@@ -234,6 +252,7 @@ const VTL = new class
 							VTL.stringifyXML(datalist));
 			}
 		}
+		VTL.handleEvents(component.view);
 		const btnCancelList = component.view.querySelectorAll(
 			"#btn-cancel, .btn-cancel");
 		for(let btnCancel of btnCancelList)
@@ -300,7 +319,7 @@ const VTL = new class
 		console.error(text);
 		if(error) error.textContent = message;
 		else alert(message);
-	}	
+	}
 };
 VTL.Component = class
 {
@@ -343,4 +362,19 @@ VTL.FALSE_HTML_ATTRIBUTES =new RegExp('('+
 	"selected",
 	"truespeed"
 ].join("|")+')="(false|no|off|0)?"', "gi");
+VTL.on("click", "#btn-back, .btn-back", event =>
+{
+	event.preventDefault();
+	history.back();
+});
+VTL.on("click", "#btn-print, .btn-print", event =>
+{
+	event.preventDefault();
+	window.print();
+});
+VTL.on("click", "#btn-reload, .btn-reload", event =>
+{
+	event.preventDefault();
+	location.reload();
+});
 //export {VTL, VTL as default};

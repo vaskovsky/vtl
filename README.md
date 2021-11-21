@@ -28,6 +28,9 @@ HTML templates. See `html/README.html`
 
 `.fw-500` = `font-weight: 500`
 
+`.inner-my-0` removes the top margin of the first nested item 
+and the bottom margin of the last nested item
+
 `.text-shadow` adds `text-shadow`
 
 `.w-A4` sets the maximum width = A4 (40em, cause 40em * 12pt (font-size) =
@@ -55,7 +58,7 @@ almost 85mm = 105mm (A6) -10mm left -10mm right)
 
 `framework.js` is a framework for AJAX applications
 
-`vtl.js`: all JS in one file (except `datepicker3.js`)
+`vtl.js` is a minified version of `framework.js`. Supports all `.btn-*`
 
 `vtl.ie6.js`: IE6 compatible version of `btn-*.js`
 (uses id instead of class for `btn-back`, `btn-print`, `btn-reload`)
