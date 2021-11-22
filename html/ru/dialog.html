@@ -27,7 +27,7 @@
 			OK
 		</button>
 		
-		<button type="submit" class="btn btn-light">
+		<button id="btn-back" class="btn btn-light">
 			<i class="fas me-1 fa-times"></i>
 			Отмена
 		</button>
@@ -37,12 +37,12 @@
 			Да
 		</button>
 		
-		<button type="submit" class="btn btn-light">
+		<button id="btn-back" class="btn btn-light">
 			<i class="fas me-1 fa-times"></i>
 			Нет
 		</button>
 				
-		<button type="submit" class="btn btn-light">
+		<button id="btn-back" class="btn btn-light">
 			<i class="fas me-1 fa-angle-left"></i>
 			Назад
 		</button>
@@ -52,58 +52,69 @@
 			<i class="fas ms-1 fa-angle-right"></i>
 		</button>
 </p>
-<p class="A4">
+<!--=========================================================================-->
+<form class="modal-content A4">
+	<div class="modal-header shadow-lg">
+		<h1 class="modal-title h4 text-light text-shadow">Заголовок</h1>
+		<button id="btn-back" class="btn-close"></button>
+	</div>
+	<div class="modal-body bg-light">
+		Содержимое
+	</div>
+	<div class="modal-footer">
 		<button type="submit" class="btn btn-light">
+			<i class="fas me-1 fa-paper-plane"></i>
+			Отправить
+		</button>
+	</div>
+</form>
+<!--=========================================================================-->
+<div class="modal-content A4">
+	<div class="modal-body bg-light">
+		Содержимое
+	</div>
+	<div class="modal-footer">
+		<button id="btn-back" class="btn btn-light">
 			<i class="fas me-1 fa-times"></i>
 			Закрыть
 		</button>
-</p>
+	</div>
+</div>
 <!--=========================================================================-->
 <form class="modal-content A4">
-	<div class="modal-header">
-		<h5 class="modal-title">Заголовок</h5>
-		<button type="submit" name="cancel" value="on" class="btn-close">
-		</button>
+	<div class="modal-header border-top shadow-lg">
+		<div class="modal-title">Вопрос 1</div>
 	</div>
-	<div class="modal-body">
-		Содержимое
+	<div class="modal-body bg-light">
+		<input name="input1" class="form-control" placeholder="Ввод данных"/>
+	</div>
+	<div class="modal-header border-top shadow-lg mt-3">
+		<div class="modal-title">Вопрос 2</div>
+	</div>
+	<div class="modal-body bg-light">
+		<input name="input1" class="form-control" placeholder="Ввод данных"/>
+	</div>
+	<div class="modal-header border-top shadow-lg mt-3">
+		<div class="modal-title">Вопрос 3</div>
+	</div>
+	<div class="modal-body bg-light">
+		<input name="input1" class="form-control" placeholder="Ввод данных"/>
 	</div>
 	<div class="modal-footer">
 		<button type="submit" class="btn btn-light">
-			Далее
-			<i class="fas ms-1 fa-angle-right"></i>
+			<i class="fas me-1 fa-paper-plane"></i>
+			Отправить
+		</button>
+		<button id="btn-back" class="btn btn-light">
+			<i class="fas me-1 fa-times"></i>
+			Закрыть
 		</button>
 	</div>
 </form>
-<!--=========================================================================-->
-<form class="modal-content A4">
-	<div class="modal-header fw-500">
-		Вопрос
-	</div>
-	<div class="modal-body">
-		Ввод данных
-	</div>
-	<div class="modal-footer">
-		<button type="submit" class="btn btn-light">
-			Далее
-			<i class="fas ms-1 fa-angle-right"></i>
-		</button>
-	</div>
-</form>
-<!--=========================================================================-->
-<form class="modal-content A4">
-	<div class="modal-body">
-		Содержимое
-	</div>
-	<div class="modal-footer">
-		<button type="submit" class="btn btn-light">
-			Далее
-			<i class="fas ms-1 fa-angle-right"></i>
-		</button>
-	</div>
-</form>
+
 <!--=========================================================================-->
 </main>
 <script src="https://cdn.jsdelivr.net/npm/mdb-ui-kit@3.9.0/js/mdb.min.js" integrity="sha256-RxzwU7tVyh80VzsnaZAKCDg7Nqj8EZXgCmb/O8GhSt4=" crossorigin="anonymous"></script>
+<script src="../../vtl.js"></script>
 </body>
 </html>
