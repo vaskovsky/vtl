@@ -67,6 +67,8 @@ almost 85mm = 105mm (A6) -10mm left -10mm right)
 
 `style.css` = `vtl.css` + questionable style changes
 
+`markdown.css` is the minimal set of styles for simple text documents
+
 ## CDN
 
 CSS:
