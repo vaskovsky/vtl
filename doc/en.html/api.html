@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" integrity="sha256-QeUWZci2yr7Vxe5Qq2lE2NZ4hlT9OlOhq3nJMefr8sk=" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/vtl@21.11.24/markdown.css"/>
+<title>
+VTL API
+</title>
+</head>
+<body>
+<h1 id="vtl-api">VTL API</h1>
+<h2 id="javascript-api">JavaScript API</h2>
+<p><code>VTL.createView(component_id: string)</code> creates a view for the component <code>component_id</code></p>
+<p><code>VTL.createForm(component_id: string)</code> creates a form for the component <code>component_id</code></p>
+<h2 id="html-templates">HTML templates</h2>
+<p>See <a href="html/README.html" class="uri">html/README.html</a></p>
+<h2 id="css-classes">CSS classes</h2>
+<p><code>.A4</code> = <code>.w-A4</code> + <code>.mx-auto</code></p>
+<p><code>.A5</code> = <code>.w-A5</code> + <code>.mx-auto</code></p>
+<p><code>.A6</code> = <code>.w-A6</code> + <code>.mx-auto</code></p>
+<p><code>.btn-back, #btn-back</code>: button &quot;Back&quot;</p>
+<p><code>.btn-print, #btn-print</code>: button &quot;Print&quot;</p>
+<p><code>.btn-reload, #btn-reload</code> button &quot;Refresh&quot;</p>
+<p><code>.form-floating-group</code> vertical input group for <code>.form-floating</code></p>
+<p><code>.fw-300</code> = <code>font-weight: 300</code></p>
+<p><code>.fw-500</code> = <code>font-weight: 500</code></p>
+<p><code>.inner-my-0</code> removes the top margin of the first child element and the bottom margin of the last child element</p>
+<p><code>.text-shadow</code> adds <code>text-shadow</code></p>
+<p><code>.w-A4</code> sets the maximum length = A4 (40em, because 40em * 12pt (font size) = almost 170mm = 210mm (A4) -20mm left -20mm right)</p>
+<p><code>.w-A5</code> sets the maximum length = A5 (30em, because 30em * 12pt (font size) = almost 128mm = 148mm (A5) -10mm left -10mm right)</p>
+<p><code>.w-A6</code> sets the maximum length = A6 (20em, because 20em * 12pt (font size) = almost 85mm = 105mm (A6) -10mm left -10mm right)</p>
+<p><code>.w-min</code> = <code>width: min-content</code></p>
+<p><code>.w-max</code> = <code>width: max-content</code></p>
+<h2 id="files">Files</h2>
+<p><code>btn-back.js</code> implements <code>.btn-back, #btn-back</code> without framework</p>
+<p><code>btn-print.js</code> implements <code>.btn-print, #btn-print</code> without framework</p>
+<p><code>btn-reload.js</code> implements <code>.btn-reload, #btn-print</code> without framework</p>
+<p><code>datepicker3.js</code>: date picker for Bootstrap 3</p>
+<p><code>framework.js</code>: JavaScript framework</p>
+<p><code>vtl.js</code>: minimized version of the file <code>framework.js</code></p>
+<p><code>vtl.ie6.js</code>: IE6-compatible implementation for <code>btn-*</code> (uses <code>id</code> instead of classes)</p>
+<p><code>vtl.css</code>: CSS style set</p>
+<p><code>style.css</code> = <code>vtl.css</code> + questionable changes to the styles of standard elements</p>
+<p><code>markdown.css</code>: minimum set of styles for simple text documents</p>
+<hr />
+<p><a href="index.html">↩ Vaskovsky Template Library (VTL)</a></p>
+</body>
+</html>
