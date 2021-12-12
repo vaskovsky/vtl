@@ -168,17 +168,6 @@ const VTL = new class
 		.then(VTL.fileinput)
 		.then(VTL.render);
 	}
-	initialPOST(component)
-	{
-		console.log("initial post", component.id);
-		if(!VTL.isLocal)
-			VTL.fetch(component.id,
-			{
-				method: "POST",
-				cache: "no-cache"
-			}).then(response => response.text());
-		return component;
-	}
 	loadModel(component)
 	{
 		return new Promise(resolve =>
@@ -319,6 +308,30 @@ const VTL = new class
 		console.error(text);
 		if(error) error.textContent = message;
 		else alert(message);
+	}
+	initialPOST(component)
+	{
+		console.log("initial post", component.id);
+		if(!VTL.isLocal)
+			VTL.fetch(component.id,
+			{
+				method: "POST",
+				cache: "no-cache"
+			}).then(response => response.text());
+		return component;
+	}
+	updateMathJax(component)
+	{
+		if("undefined" !== typeof MathJax)
+		{
+			if(undefined === component) MathJax.typeset();
+			else
+			{
+				MathJax.typesetClear([component.view]);
+				return MathJax.typesetPromise([component.view]);
+			}
+		}
+		return component;
 	}
 };
 VTL.Component = class

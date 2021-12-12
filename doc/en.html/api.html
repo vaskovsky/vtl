@@ -11,10 +11,14 @@ VTL API
 <body>
 <h1 id="vtl-api">VTL API</h1>
 <h2 id="javascript-api">JavaScript API</h2>
-<p><code>VTL.createView(component_id: string)</code> creates a view for the component <code>component_id</code></p>
-<p><code>VTL.createForm(component_id: string)</code> creates a form for the component <code>component_id</code></p>
-<h2 id="html-templates">HTML templates</h2>
-<p>See <a href="html/README.html" class="uri">html/README.html</a></p>
+<p><code>VTL.createView(component_id: string)</code> creates a view for the component <code>component_id</code>. Returns a Promise, returning <code>VTL.Component</code>. after successfully discovering the component and loading the view data.</p>
+<p><code>VTL.createForm(component_id: string)</code> creates a form for the component <code>component_id</code>. Returns a Promise, returning <code>VTL.Component</code> after successfully detecting the component and initializing the form.</p>
+<h3 id="handlers">Handlers</h3>
+<p><code>VTL.initialPOST</code> sends an initial POST with a query string from the URL.</p>
+<p><code>VTL.updateMathJax</code> updates the formula view when using MathJax.</p>
+<p>Using handlers:</p>
+<pre><code>VTL.createForm(&quot;login&quot;).then(VTL.initialPOST);
+</code></pre>
 <h2 id="css-classes">CSS classes</h2>
 <p><code>.A4</code> = <code>.w-A4</code> + <code>.mx-auto</code></p>
 <p><code>.A5</code> = <code>.w-A5</code> + <code>.mx-auto</code></p>
@@ -32,6 +36,11 @@ VTL API
 <p><code>.w-A6</code> sets the maximum length = A6 (20em, because 20em * 12pt (font size) = almost 85mm = 105mm (A6) -10mm left -10mm right)</p>
 <p><code>.w-min</code> = <code>width: min-content</code></p>
 <p><code>.w-max</code> = <code>width: max-content</code></p>
+<h2 id="html">HTML</h2>
+<p>The location of the backend server can be changed using the HTML tag:</p>
+<pre><code>&lt;link id=&quot;server&quot; href=&quot;http://vaskovsky.net/vtl/sample/en/&quot; rel=&quot;preconnect&quot;/&gt;
+</code></pre>
+<p>where <code>http://vaskovsky.net/vtl/sample/en/</code> is the address of your backend server.</p>
 <h2 id="files">Files</h2>
 <p><code>btn-back.js</code> implements <code>.btn-back, #btn-back</code> without framework</p>
 <p><code>btn-print.js</code> implements <code>.btn-print, #btn-print</code> without framework</p>
@@ -44,6 +53,6 @@ VTL API
 <p><code>style.css</code> = <code>vtl.css</code> + questionable changes to the styles of standard elements</p>
 <p><code>markdown.css</code>: minimum set of styles for simple text documents</p>
 <hr />
-<p><a href="index.html">↩ Vaskovsky Template Library (VTL)</a></p>
+<p><a href="index.html">↩ VTL</a></p>
 </body>
 </html>

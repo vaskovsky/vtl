@@ -15,7 +15,9 @@
 		"exclude":
 		[
 			"/node_modules",
-			"/html"
+			"/html",
+			"/doc",
+			"/sample"
 		]
 	}
 }

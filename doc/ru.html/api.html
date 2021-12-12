@@ -11,10 +11,14 @@ VTL API
 <body>
 <h1 id="vtl-api">VTL API</h1>
 <h2 id="javascript-api">JavaScript API</h2>
-<p><code>VTL.createView(component_id: string)</code> создаёт представление для компонента <code>component_id</code></p>
-<p><code>VTL.createForm(component_id: string)</code> создаёт форму для компонента <code>component_id</code></p>
-<h2 id="html-шаблоны">HTML-шаблоны</h2>
-<p>See <a href="html/README.html" class="uri">html/README.html</a></p>
+<p><code>VTL.createView(component_id: string)</code> создаёт представление для компонента <code>component_id</code>. Возвращает Promise, возвращающий <code>VTL.Component</code>. после успешного обнаружения компонента и загрузки данных представления.</p>
+<p><code>VTL.createForm(component_id: string)</code> создаёт форму для компонента <code>component_id</code>. Возвращает Promise, возвращающий <code>VTL.Component</code> после успешного обнаружения компонента и инициализации формы.</p>
+<h3 id="обработчики">Обработчики</h3>
+<p><code>VTL.initialPOST</code> отправляет начальный POST со строкой запроса из URL.</p>
+<p><code>VTL.updateMathJax</code> обновляет представление формул при использовании MathJax.</p>
+<p>Использование обработчиков:</p>
+<pre><code>VTL.createForm(&quot;login&quot;).then(VTL.initialPOST);
+</code></pre>
 <h2 id="классы-css">Классы CSS</h2>
 <p><code>.A4</code> = <code>.w-A4</code> + <code>.mx-auto</code></p>
 <p><code>.A5</code> = <code>.w-A5</code> + <code>.mx-auto</code></p>
@@ -32,6 +36,11 @@ VTL API
 <p><code>.w-A6</code> устанавливает максимальную длину = A6 (20em, потому что 20em * 12pt (размер шрифта) = почти 85mm = 105mm (A6) -10mm слева -10mm справа)</p>
 <p><code>.w-min</code> = <code>width: min-content</code></p>
 <p><code>.w-max</code> = <code>width: max-content</code></p>
+<h2 id="html">HTML</h2>
+<p>Расположение бэкенд-сервера можно изменить с помощью HTML-тега:</p>
+<pre><code>&lt;link id=&quot;server&quot; href=&quot;http://vaskovsky.ru/vtl/sample/ru/&quot; rel=&quot;preconnect&quot;/&gt;
+</code></pre>
+<p>где <code>http://vaskovsky.ru/vtl/sample/ru/</code> это адрес Вашего бэкенд-сервера.</p>
 <h2 id="файлы">Файлы</h2>
 <p><code>btn-back.js</code> реализует <code>.btn-back, #btn-back</code> без фреймворка</p>
 <p><code>btn-print.js</code> реализует <code>.btn-print, #btn-print</code> без фреймворка</p>
@@ -44,6 +53,6 @@ VTL API
 <p><code>style.css</code> = <code>vtl.css</code> + сомнительные изменения стилей стандартных элементов</p>
 <p><code>markdown.css</code>: минимальный набор стилей для простых текстовых документов</p>
 <hr />
-<p><a href="index.html">↩ Vaskovsky Template Library (VTL)</a></p>
+<p><a href="index.html">↩ VTL</a></p>
 </body>
 </html>

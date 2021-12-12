@@ -2,13 +2,26 @@
 
 ## JavaScript API
 
-`VTL.createView(component_id: string)` creates a view for the component `component_id`
+`VTL.createView(component_id: string)`
+creates a view for the component `component_id`.
+Returns a Promise, returning `VTL.Component`.
+after successfully discovering the component and loading the view data.
 
-`VTL.createForm(component_id: string)` creates a form for the component `component_id`
+`VTL.createForm(component_id: string)`
+creates a form for the component `component_id`.
+Returns a Promise, returning `VTL.Component`
+after successfully detecting the component and initializing the form.
 
-## HTML templates
+### Handlers
 
-See [html/README.html](html/README.html)
+`VTL.initialPOST` sends an initial POST with a query string from the URL.
+
+`VTL.updateMathJax` updates the formula view when using MathJax.
+
+Using handlers:
+```
+VTL.createForm("login").then(VTL.initialPOST);
+```
 
 ## CSS classes
 
@@ -47,6 +60,14 @@ almost 85mm = 105mm (A6) -10mm left -10mm right)
 
 `.w-max` = `width: max-content`
 
+## HTML
+
+The location of the backend server can be changed using the HTML tag:
+```
+<link id="server" href="http://vaskovsky.net/vtl/sample/en/" rel="preconnect"/>
+```
+where `http://vaskovsky.net/vtl/sample/en/` is the address of your backend server.
+
 ## Files
 
 `btn-back.js` implements `.btn-back, #btn-back` without framework
@@ -70,4 +91,4 @@ almost 85mm = 105mm (A6) -10mm left -10mm right)
 
 `markdown.css`: minimum set of styles for simple text documents
 ________________________________________________________________________________
-[&#8617; Vaskovsky Template Library (VTL)](index.md)
+[↩ VTL](index.md)

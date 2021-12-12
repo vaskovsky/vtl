@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" integrity="sha256-QeUWZci2yr7Vxe5Qq2lE2NZ4hlT9OlOhq3nJMefr8sk=" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/vtl@21.11.24/markdown.css"/>
+<title>
+Настройка VTL-приложений
+</title>
+</head>
+<body>
+<h1 id="настройка-vtl-приложений">Настройка VTL-приложений</h1>
+<h2 id="содержание">Содержание</h2>
+<ul>
+<li><a href="#установка-vtl-приложения">Установка VTL-приложения</a></li>
+<li><a href="#настройка-соединения-с-sqlite">Настройка соединения с SQLite</a></li>
+<li><a href="#настройка-соединения-с-postgresql">Настройка соединения с PostgreSQL</a></li>
+<li><a href="#настройка-соединения-с-mysql">Настройка соединения с MySQL</a></li>
+<li><a href="#изменение-пароля-администратора">Изменение пароля администратора</a></li>
+<li><a href="#масштабируемость">Масштабируемость</a></li>
+</ul>
+<h2 id="установка-vtl-приложения">Установка VTL-приложения</h2>
+<p>Для установки VTL-приложения необходимо:</p>
+<ol>
+<li>Прописать настройки в конфигурационном файле <code>config.php</code>.</li>
+<li>Загрузить файлы программы на веб-сервер.</li>
+</ol>
+<h2 id="настройка-соединения-с-sqlite">Настройка соединения с SQLite</h2>
+<p>По умолчанию программа создаёт файл базы данных <code>univer.sqlite3</code> в домашнем каталоге пользователя, от имени которого запускается PHP.</p>
+<p>Если Вас это устраивает, то никакие настройки прописывать не нужно, удалите файл <code>config.php</code>, если Вы ранее его создавали.</p>
+<p>Если настройки по умолчанию не подходят, создайте файл <code>config.php</code> в каталоге программы, содержащий текст:</p>
+<pre><code>&lt;?php
+$DB_DSN = &#39;sqlite:/path/to/univer.sqlite3&#39;;
+</code></pre>
+<p>где</p>
+<p><code>/path/to/univer.sqlite3</code>: абсолютный путь к файлу базы данных <code>*.sqlite3</code>.</p>
+<p>Убедитесь, что пользователь, от имени которого запускается PHP, имеет права на запись в данный файл.</p>
+<h2 id="настройка-соединения-с-postgresql">Настройка соединения с PostgreSQL</h2>
+<p>Создайте пустую базу данных на сервере PostgreSQL.</p>
+<p>Создайте файл <code>config.php</code> в каталоге программы, содержащий текст:</p>
+<pre><code>&lt;?php
+$DB_DSN = &#39;pgsql:host=localhost;dbname=univer&#39;;
+$DB_USER = &#39;postgres&#39;;
+$DB_PASS = &#39;postgres_password&#39;;
+</code></pre>
+<p>где</p>
+<p><code>localhost</code>: имя сервера, на котором расположена база данных;</p>
+<p><code>univer</code>: имя базы данных;</p>
+<p><code>postgres</code>: имя пользователя PostgreSQL;</p>
+<p><code>postgres_password</code>: пароль пользователя PostgreSQL.</p>
+<h2 id="настройка-соединения-с-mysql">Настройка соединения с MySQL</h2>
+<p>Создайте пустую базу данных на сервере MySQL.</p>
+<p>Создайте файл <code>config.php</code> в каталоге программы, содержащий текст:</p>
+<pre><code>&lt;?php
+$DB_DSN = &#39;mysql:host=localhost;dbname=univer;charset=UTF8&#39;;
+$DB_USER = &#39;mysql_user&#39;;
+$DB_PASS = &#39;mysql_password&#39;;
+</code></pre>
+<p>где</p>
+<p><code>localhost</code>: имя сервера, на котором расположена база данных;</p>
+<p><code>univer</code>: имя базы данных;</p>
+<p><code>mysql_user</code>: имя пользователя MySQL;</p>
+<p><code>mysql_password</code>: пароль пользователя MySQL.</p>
+<h2 id="изменение-пароля-администратора">Изменение пароля администратора</h2>
+<p>По умолчанию,</p>
+<ul>
+<li>Логин администратора: <code>admin</code></li>
+<li>Пароль администратора: <code>admin</code></li>
+</ul>
+<p>Для изменения значений по умолчанию добавьте в файл <code>config.php</code> текст:</p>
+<pre><code>$ADMIN_LOGIN = &quot;new_admin_login&quot;;
+$ADMIN_PASSWORD = &quot;new_admin_password&quot;;
+</code></pre>
+<p>где</p>
+<p><code>new_admin_login</code>: новый логин администратора по умолчанию.</p>
+<p><code>new_admin_password</code>: новый пароль администратора по умолчанию.</p>
+<p>После того как база данных будет проинициализмрована, логин и пароль администратора можно будет изменить только через веб-интерфейс. Логин и пароль в файле <code>config.php</code> будут проигнорированы.</p>
+<p>Обязательно измените пароль администратора после установки приложения.</p>
+<p>Для этого выберите пункт меню <a href="sample/ru/profile.html">Настройки</a>.</p>
+<h2 id="масштабируемость">Масштабируемость</h2>
+<p>Веб-приложение состоит из двух частей: фронтенд и бэкенд, которые могут располагаться на разных серверах.</p>
+<p>На бэкенд-сервере размещаются файлы PHP, которые поставляют данные для веб-приложения.</p>
+<p>К одному бэкенд-серверу могут обращаться один или несколько фронтенд-серверов.</p>
+<p>На фронтенд-сервере размещаются статичные файлы HTML и скрипт <code>api.js</code>. Это позволяет</p>
+<ul>
+<li>изменять дизайн приложения без знания JavaScript, PHP и других технологий,</li>
+<li>кэшировать фронтенд на стороне клиента,</li>
+<li>использовать CDN для более быстрой загрузки фронтенда из любой точки мира.</li>
+</ul>
+<p>По умолчанию, фронтенд ищет бэкенд на том же сервере, в той же директории, но можно указать другое расположение с помощью элемента</p>
+<pre><code>&lt;link id=&quot;server&quot; href=&quot;http://vaskovsky.ru/vtl/sample/ru/&quot; rel=&quot;preconnect&quot;/&gt;
+</code></pre>
+<hr />
+<p><a href="index.html">↩ VTL</a></p>
+<style>pre {white-space: pre-wrap}</style>
+
+</body>
+</html>

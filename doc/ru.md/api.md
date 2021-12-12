@@ -2,13 +2,26 @@
 
 ## JavaScript API
 
-`VTL.createView(component_id: string)` создаёт представление для компонента `component_id`
+`VTL.createView(component_id: string)`
+создаёт представление для компонента `component_id`.
+Возвращает Promise, возвращающий `VTL.Component`.
+после успешного обнаружения компонента и загрузки данных представления.
 
-`VTL.createForm(component_id: string)` создаёт форму для компонента `component_id`
+`VTL.createForm(component_id: string)`
+создаёт форму для компонента `component_id`.
+Возвращает Promise, возвращающий `VTL.Component`
+после успешного обнаружения компонента и инициализации формы.
 
-## HTML-шаблоны
+### Обработчики
 
-See [html/README.html](html/README.html)
+`VTL.initialPOST` отправляет начальный POST со строкой запроса из URL.
+
+`VTL.updateMathJax` обновляет представление формул при использовании MathJax.
+
+Использование обработчиков:
+```
+VTL.createForm("login").then(VTL.initialPOST);
+```
 
 ## Классы CSS
 
@@ -47,6 +60,14 @@ See [html/README.html](html/README.html)
 
 `.w-max` = `width: max-content`
 
+## HTML
+
+Расположение бэкенд-сервера можно изменить с помощью HTML-тега:
+```
+<link id="server" href="http://vaskovsky.ru/vtl/sample/ru/" rel="preconnect"/>
+```
+где `http://vaskovsky.ru/vtl/sample/ru/` это адрес Вашего бэкенд-сервера.
+
 ## Файлы
 
 `btn-back.js` реализует `.btn-back, #btn-back` без фреймворка
@@ -70,4 +91,4 @@ See [html/README.html](html/README.html)
 
 `markdown.css`: минимальный набор стилей для простых текстовых документов
 ________________________________________________________________________________
-[&#8617; Vaskovsky Template Library (VTL)](index.md)
+[↩ VTL](index.md)
