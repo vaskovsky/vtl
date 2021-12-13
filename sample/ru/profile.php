@@ -2,9 +2,9 @@
 require_once "database.php";
 try
 {
-	$password0 = hash("gost-crypto", trim($_POST["password0"]));
-	$password1 = hash("gost-crypto", trim($_POST["password1"]));
-	$password2 = hash("gost-crypto", trim($_POST["password2"]));
+	$password0 = hash("sha512", trim($_POST["password0"]));
+	$password1 = hash("sha512", trim($_POST["password1"]));
+	$password2 = hash("sha512", trim($_POST["password2"]));
 	$sth = $dbh->prepare(
 		"select password from account where account_id = ?");
 	$sth->execute([$account_id]);

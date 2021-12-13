@@ -1,5 +1,6 @@
 <?php
 $HOME = getenv("HOME");
+$WWWROOT = $_SERVER["DOCUMENT_ROOT"];
 $DB_DSN = "sqlite:$HOME/sample.sqlite3";
 $DB_USER = null;
 $DB_PASS = null;

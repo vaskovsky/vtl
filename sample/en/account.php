@@ -24,17 +24,15 @@ try
 		else
 		{
 			$params = array();
-			$login = $account["login"];
-			if(isset($_GET['login']))
-				$login = (string) trim($_GET['login']);
+			$login = (string) trim($account['login']);
 			if(isset($_POST['login']))
 				$login = (string) trim($_POST['login']);
 			$params[] = $login;
-			$password = $account["password"];
+			$password = hash('sha512', trim($account['password']));
 			if(!empty($_POST['password']))
-				$password = hash('gost-crypto', trim($_POST['password']));
+				$password = hash('sha512', trim($_POST['password']));
 			$params[] = $password;
-			$role_id = $account["role_id"];
+			$role_id = (int) trim($account['role_id']);
 			if(isset($_POST['role_id']))
 				$role_id = (int) trim($_POST['role_id']);
 			$params[] = $role_id;
@@ -65,7 +63,7 @@ try
 			$params[] = $login;
 			$password = $account["password"];
 			if(!empty($_POST['password']))
-				$password = hash('gost-crypto', trim($_POST['password']));
+				$password = hash('sha512', trim($_POST['password']));
 			$params[] = $password;
 			$role_id = $account["role_id"];
 			if(isset($_POST['role_id']))

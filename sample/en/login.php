@@ -14,7 +14,7 @@ try
 	}
 	$return = trim(@$_GET["return"]);
 	$login = trim($_POST["login"]);
-	$password = hash("gost-crypto", trim($_POST["password"]));
+	$password = hash("sha512", trim($_POST["password"]));
 	$sth = $dbh->prepare("select * from account".
 		" where login = ? and password = ?");
 	$sth->execute([$login, $password]);

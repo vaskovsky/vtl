@@ -1,5 +1,5 @@
 <?php
-$ADMIN_PASSWORD = hash("gost-crypto", $ADMIN_PASSWORD);
+$ADMIN_PASSWORD = hash("sha512", $ADMIN_PASSWORD);
 if(preg_match("/^sqlite:/", $DB_DSN))
 {
 	if(!isset($sample_version))
@@ -40,7 +40,7 @@ if(preg_match("/^sqlite:/", $DB_DSN))
 	}
 	if($sample_version < 6)
 	{
-		$dbh->exec("insert into account(account_id, login, password, role_id) values ('1', '$ADMIN_LOGIN', '$ADMIN_PASSWORD', '3')");
+		$dbh->exec("insert into account(login, password, role_id) values ('$ADMIN_LOGIN', '$ADMIN_PASSWORD', '3')");
 		$dbh->exec("update db_sample set sample_version = 6");
 		$sample_version = 6;
 	}
@@ -85,7 +85,7 @@ if(preg_match("/^pgsql:/", $DB_DSN))
 	}
 	if($sample_version < 6)
 	{
-		$dbh->exec("insert into account(account_id, login, password, role_id) values ('1', '$ADMIN_LOGIN', '$ADMIN_PASSWORD', '3')");
+		$dbh->exec("insert into account(login, password, role_id) values ('$ADMIN_LOGIN', '$ADMIN_PASSWORD', '3')");
 		$dbh->exec("update db_sample set sample_version = 6");
 		$sample_version = 6;
 	}
@@ -130,7 +130,7 @@ if(preg_match("/^mysql:/", $DB_DSN))
 	}
 	if($sample_version < 6)
 	{
-		$dbh->exec("insert into account(account_id, login, password, role_id) values ('1', '$ADMIN_LOGIN', '$ADMIN_PASSWORD', '3')");
+		$dbh->exec("insert into account(login, password, role_id) values ('$ADMIN_LOGIN', '$ADMIN_PASSWORD', '3')");
 		$dbh->exec("update db_sample set sample_version = 6");
 		$sample_version = 6;
 	}
