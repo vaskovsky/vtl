@@ -14,7 +14,7 @@ VTL &#8212; is a JavaScript framework, a set of HTML templates and CSS styles fo
 
 JavaScript framework:
 ```
-<script src="https://cdn.jsdelivr.net/npm/vtl@21.12.12/vtl.js" integrity="sha256-uzL45R5xQxip9v0ek+kvzeWty91d1hS2y+gUZmLFgj0=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vtl@21.12.12/vtl.js" integrity="sha256-FWxOSrzlqKWBDVQTMKuvqdoSGX+5/BfkEQWQcZ7mc/M=" crossorigin="anonymous"></script>
 ```
 
 CSS style sheet:

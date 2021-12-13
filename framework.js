@@ -375,6 +375,17 @@ VTL.FALSE_HTML_ATTRIBUTES =new RegExp('('+
 	"selected",
 	"truespeed"
 ].join("|")+')="(false|no|off|0)?"', "gi");
+VTL.on("click", "#subquery, .subquery", function(event)
+{
+	event.preventDefault();
+	let href = event.target.getAttribute("href");
+	if(href.indexOf("#") >= 0)
+		href = href.replace("#", "#" + VTL.queryString + "&", href);
+	else
+		href += "#" + VTL.queryString;
+	console.log("go to", href);
+	location.href = href;
+});
 VTL.on("click", "#btn-back, .btn-back", event =>
 {
 	event.preventDefault();
