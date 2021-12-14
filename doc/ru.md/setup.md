@@ -131,4 +131,3 @@ $ADMIN_PASSWORD = "new_admin_password";
 ```
 ________________________________________________________________________________
 [↩ VTL](index.md)
-<style>pre {white-space: pre-wrap}</style>

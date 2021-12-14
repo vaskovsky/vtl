@@ -131,4 +131,3 @@ but you can specify a different location by using the element
 ```
 ________________________________________________________________________________
 [↩ VTL](index.md)
-<style>pre {white-space: pre-wrap}</style>

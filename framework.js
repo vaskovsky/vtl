@@ -110,7 +110,7 @@ const VTL = new class
 	}
 	async post(component_id, data)
 	{
-		console.log("post", component_id, data);
+		console.log("post", component_id);
 		if(VTL.isLocal) return null;
 		const response = await VTL.fetch(component_id,
 		{
@@ -140,7 +140,7 @@ const VTL = new class
 	createForm(component_id)
 	{
 		const component = new VTL.Component(component_id);
-		return new Promise(resolve =>
+		return component.promise(resolve =>
 		{
 			if(!component.view)
 				component.view = document.getElementById(component.id);
@@ -156,7 +156,7 @@ const VTL = new class
 						const href = await VTL.post(component.id, data);
 						location.href = href;						
 					});
-				resolve(component);
+				resolve("create");
 			}
 		});
 	}
@@ -170,18 +170,18 @@ const VTL = new class
 	}
 	loadModel(component)
 	{
-		return new Promise(resolve =>
+		return component.promise(resolve =>
 		{
 			VTL.ready(async() =>
 			{
 				component.model = await VTL.getXML(component.id);
-				resolve(component);
+				resolve();
 			});
 		});
 	}
 	fileinput(component)
 	{
-		return new Promise(resolve =>
+		return component.promise(resolve =>
 		{
 			const input = document.getElementById(
 				component.id + "_fileinput");
@@ -189,7 +189,6 @@ const VTL = new class
 			{
 				input.addEventListener("input", async event =>
 				{
-					console.log("get:", component.id, "(file)");
 					event.preventDefault();
 					try
 					{
@@ -198,7 +197,7 @@ const VTL = new class
 						{
 							component.model =
 								VTL.parseXML(event.target.result);
-							resolve(component);
+							resolve("fileinput");
 						};
 						reader.readAsText(input.files[0], "UTF-8");
 					}
@@ -208,51 +207,54 @@ const VTL = new class
 					}
 				});
 			}
-			resolve(component);
+			resolve();
 		});
 	}
 	render(component)
 	{
-		const elementList = component.model.getElementsByTagName(component.id);
-		let html = "";
-		for(const element of elementList)
-			html += VTL.renderElement(element);
-		if("" == html)
+		return component.promise(resolve =>
 		{
-			const no_data_view = document.getElementById(
-				"no_" + component.id + "_view");
-			if(no_data_view) html = no_data_view.innerHTML;
-		}
-		component.view.innerHTML = html;
-		const datalistCollection =
-			component.model.getElementsByTagName("datalist");
-		for(const datalist of datalistCollection)
-		{
-			const datalistId = datalist.getAttribute("id");
-			if(datalistId)
+			const elementList = component.model.getElementsByTagName(component.id);
+			let html = "";
+			for(const element of elementList)
+				html += VTL.renderElement(element);
+			if("" == html)
 			{
-				const datalistOutput = document.getElementById(datalistId);
-				if(datalistOutput)
-					datalistOutput.innerHTML =
-						VTL.stringifyInnerXML(datalist);
-				else
-					document.getElementsByTagName("body")[0]
-						.insertAdjacentHTML("beforeEnd",
-							VTL.stringifyXML(datalist));
+				const no_data_view = document.getElementById(
+					"no_" + component.id + "_view");
+				if(no_data_view) html = no_data_view.innerHTML;
 			}
-		}
-		VTL.handleEvents(component.view);
-		const btnCancelList = component.view.querySelectorAll(
-			"#btn-cancel, .btn-cancel");
-		for(let btnCancel of btnCancelList)
-		{
-			btnCancel.addEventListener("click", event =>
+			component.view.innerHTML = html;
+			const datalistCollection =
+				component.model.getElementsByTagName("datalist");
+			for(const datalist of datalistCollection)
 			{
-				event.preventDefault();
-				history.back();
-			});
-		}
-		return component;
+				const datalistId = datalist.getAttribute("id");
+				if(datalistId)
+				{
+					const datalistOutput = document.getElementById(datalistId);
+					if(datalistOutput)
+						datalistOutput.innerHTML =
+							VTL.stringifyInnerXML(datalist);
+					else
+						document.getElementsByTagName("body")[0]
+							.insertAdjacentHTML("beforeEnd",
+								VTL.stringifyXML(datalist));
+				}
+			}
+			VTL.handleEvents(component.view);
+			const btnCancelList = component.view.querySelectorAll(
+				"#btn-cancel, .btn-cancel");
+			for(let btnCancel of btnCancelList)
+			{
+				btnCancel.addEventListener("click", event =>
+				{
+					event.preventDefault();
+					history.back();
+				});
+			}
+			resolve("render");
+		});
 	}
 	renderElement(element)
 	{
@@ -301,9 +303,9 @@ const VTL = new class
 			xml += this.stringifyXML(child);
 		return xml;
 	}
-	error(type, message, at)
+	error(type, message, location)
 	{
-		const text = `${type}: ${message}\n@${at}`;
+		const text = `${type}: ${message}\n@${location}`;
 		const error = document.getElementById("error");
 		console.error(text);
 		if(error) error.textContent = message;
@@ -311,27 +313,34 @@ const VTL = new class
 	}
 	initialPOST(component)
 	{
-		console.log("initial post", component.id);
-		if(!VTL.isLocal)
+		return component.promise(resolve =>
+		{
+			if(!VTL.isLocal)
 			VTL.fetch(component.id,
 			{
 				method: "POST",
 				cache: "no-cache"
 			}).then(response => response.text());
-		return component;
+			resolve("initial post");
+		});
 	}
 	updateMathJax(component)
 	{
-		if("undefined" !== typeof MathJax)
+		return component.promise(resolve =>
 		{
-			if(undefined === component) MathJax.typeset();
-			else
+			if("undefined" !== typeof MathJax)
 			{
-				MathJax.typesetClear([component.view]);
-				return MathJax.typesetPromise([component.view]);
+				if(undefined === component) MathJax.typeset();
+				else
+				{
+					MathJax.typesetClear([component.view]);
+					MathJax.typesetPromise([component.view]).then(()=>
+					{
+						resolve("updateMathJax");
+					});
+				}
 			}
-		}
-		return component;
+		});
 	}
 };
 VTL.Component = class
@@ -344,6 +353,69 @@ VTL.Component = class
 		this.id = String(id);
 		this.model = null;
 		this.view = null;
+	}
+	promise(executor)
+	{
+		return new VTL.Promise(this, executor);
+	}
+};
+VTL.Promise = class
+{
+	constructor(component, executor)
+	{
+		this.component = component;
+		this.executor = executor;
+		const self = this;
+		this.resolve = function(status)
+		{
+			if(status) console.debug(status, self.component.id);
+			if(self.next) self.next.run();
+		}
+		setTimeout(() =>
+		{
+			if(!self.previous) self.run();
+		});
+	}
+	run()
+	{
+		try
+		{
+			this.executor(this.resolve);
+		}
+		catch(error)
+		{
+			VTL.error("catch", error.message, location.href);
+		}
+	}
+	then(onFulfilled)
+	{
+		const next = onFulfilled(this.component);
+		if(next instanceof VTL.Promise)
+		{
+			if(!next.previous) next.previous = this;
+			else
+			{
+				VTL.error("Logic error",
+					"VTL.Promise already has previous one", onFulfilled.name,
+					location.href);
+				return this;
+			}
+			if(!this.next) return this.next = next;
+			else
+			{
+				VTL.error("Logic error",
+					"VTL.Promise already has next one", onFulfilled.name,
+					location.href);
+				return this;
+			}			
+		}
+		else
+		{
+			VTL.error("Logic error",
+				"VTL.Promise expected to be returned from", onFulfilled.name,
+				location.href);
+			return this;
+		}
 	}
 };
 VTL.FALSE_HTML_ATTRIBUTES =new RegExp('('+

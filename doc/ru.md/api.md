@@ -2,15 +2,13 @@
 
 ## JavaScript API
 
-`VTL.createView(component_id: string)`
-создаёт представление для компонента `component_id`.
-Возвращает Promise, возвращающий `VTL.Component`.
-после успешного обнаружения компонента и загрузки данных представления.
+`VTL.createView(component_id: string)` создаёт представление для компонента `component_id`.
+Возвращает `VTL.Promise` после успешного обнаружения компонента и загрузки данных представления.
 
-`VTL.createForm(component_id: string)`
-создаёт форму для компонента `component_id`.
-Возвращает Promise, возвращающий `VTL.Component`
-после успешного обнаружения компонента и инициализации формы.
+`VTL.createForm(component_id: string)` создаёт форму для компонента `component_id`.
+Возвращает `VTL.Promise` после успешного обнаружения компонента и инициализации формы.
+
+`VTL.error(type: string, message: string, location: string)`: отображает сообщение об ошибке.
 
 ### Обработчики
 
@@ -23,42 +21,76 @@
 VTL.createForm("login").then(VTL.initialPOST);
 ```
 
+### VTL.Component
+
+`new VTL.Component(id: string)` создаёт новый `VTL.Component`.
+
+`component.id: string`: идентификатор компонента.
+
+`component.model: XMLDocument`: модель компонента.
+
+`component.view: HTMLElement`: вид компонента.
+
+### VTL.Promise
+
+`component.promise(executor)` возвращает обещание, привязанное к данному компоненту.
+
+`executor: resolve => void` это функция, выполняемая конструктором в процессе создания нового обещания.
+
+`resolve(status: string)` вызывает следующее в цепочке обещание, привязанное к данному компоненту.
+
+`VTL.Promise` допускает множественный вызов `resolve` внутри функции `executor` и вложенных асинхронных функциях.
+При каждом вызове `resolve` будут вызываться все последующие обещания.
+
+`reject(reason)` не поддерживается в `VTL.Promise`. `VTL.error` используется вместо неё.
+
+`promise.then(onFulfilled)` добавляет обработчик выполнения к обещанию и возвращает новое обещание.
+
+`onFulfilled: component => VTL.Promise`: обработчик выполнения к обещанию обязан вернуть объект типа `VTL.Promise`.
+
+`catch(onRejected)` не поддерживается в `VTL.Promise`. `VTL.error` используется вместо неё.
+
 ## Классы CSS
 
-`.A4` = `.w-A4` + `.mx-auto`
+`.A4` = `.w-A4` + `.mx-auto`.
 
-`.A5` = `.w-A5` + `.mx-auto`
+`.A5` = `.w-A5` + `.mx-auto`.
 
-`.A6` = `.w-A6` + `.mx-auto`
+`.A6` = `.w-A6` + `.mx-auto`.
 
-`.btn-back, #btn-back`: кнопка "Назад"
+`.subquery, #subquery`: при щелчке добавляет текущую строку запроса к атрибуту `href`.
 
-`.btn-print, #btn-print`: кнопка "Печать"
+`.btn-back, #btn-back`: кнопка "Назад".
 
-`.btn-reload, #btn-reload` кнопка "Обновить"
+`.btn-print, #btn-print`: кнопка "Печать".
 
-`.form-floating-group` вертикальная группа ввода для `.form-floating`
+`.btn-reload, #btn-reload` кнопка "Обновить".
 
-`.fw-300` = `font-weight: 300`
+`.form-floating-group` вертикальная группа ввода для `.form-floating`.
 
-`.fw-500` = `font-weight: 500`
+`.fw-300` = `font-weight: 300`.
 
-`.inner-my-0` удаляет верхнее поле первого дочернего элемента и нижнее поле последнего дочернего элемента
+`.fw-500` = `font-weight: 500`.
 
-`.text-shadow` добавляет `text-shadow`
+`.inner-my-0` удаляет верхнее поле первого дочернего элемента и нижнее поле последнего дочернего элемента.
 
-`.w-A4` устанавливает максимальную длину = A4 (40em, потому что 40em * 12pt (размер шрифта) =
-почти 170mm = 210mm (A4) -20mm слева -20mm справа)
+`.text-shadow` добавляет `text-shadow`.
 
-`.w-A5` устанавливает максимальную длину = A5 (30em, потому что 30em * 12pt (размер шрифта) =
-почти 128mm = 148mm (A5) -10mm слева -10mm справа)
+`.w-A4` устанавливает максимальную длину = A4
+(40em, потому что 40em * 12pt (размер шрифта) =
+ почти 170mm = 210mm (A4) -20mm слева -20mm справа).
 
-`.w-A6` устанавливает максимальную длину = A6 (20em, потому что 20em * 12pt (размер шрифта) =
-почти 85mm = 105mm (A6) -10mm слева -10mm справа)
+`.w-A5` устанавливает максимальную длину = A5
+(30em, потому что 30em * 12pt (размер шрифта) =
+ почти 128mm = 148mm (A5) -10mm слева -10mm справа).
 
-`.w-min` = `width: min-content`
+`.w-A6` устанавливает максимальную длину = A6
+(20em, потому что 20em * 12pt (размер шрифта) =
+ почти 85mm = 105mm (A6) -10mm слева -10mm справа).
 
-`.w-max` = `width: max-content`
+`.w-min` = `width: min-content`.
+
+`.w-max` = `width: max-content`.
 
 ## HTML
 
@@ -70,25 +102,25 @@ VTL.createForm("login").then(VTL.initialPOST);
 
 ## Файлы
 
-`btn-back.js` реализует `.btn-back, #btn-back` без фреймворка
+`btn-back.js` реализует `.btn-back, #btn-back` без фреймворка.
 
-`btn-print.js` реализует `.btn-print, #btn-print` без фреймворка
+`btn-print.js` реализует `.btn-print, #btn-print` без фреймворка.
 
-`btn-reload.js` реализует `.btn-reload, #btn-print` без фреймворка
+`btn-reload.js` реализует `.btn-reload, #btn-print` без фреймворка.
 
-`datepicker3.js`: выбор даты для Bootstrap 3
+`datepicker3.js`: выбор даты для Bootstrap 3.
 
-`framework.js`: JavaScript-фреймворк
+`framework.js`: JavaScript-фреймворк.
 
-`vtl.js`: минимизированная версия файла `framework.js`
+`vtl.js`: минимизированная версия файла `framework.js`.
 
 `vtl.ie6.js`: совместимая с IE6 реализация кнопок `btn-*`
-(использует `id` вместо классов)
+(использует `id` вместо классов).
 
-`vtl.css`: набор стилей CSS
+`vtl.css`: набор стилей CSS.
 
-`style.css` = `vtl.css` + сомнительные изменения стилей стандартных элементов
+`style.css` = `vtl.css` + сомнительные изменения стилей стандартных элементов.
 
-`markdown.css`: минимальный набор стилей для простых текстовых документов
+`markdown.css`: минимальный набор стилей для простых текстовых документов.
 ________________________________________________________________________________
 [↩ VTL](index.md)

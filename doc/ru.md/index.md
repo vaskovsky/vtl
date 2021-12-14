@@ -14,21 +14,20 @@ VTL &#8212; это JavaScript-фреймворк, набор HTML-шаблоно
 
 JavaScript-фреймворк:
 ```
-<script src="https://cdn.jsdelivr.net/npm/vtl@21.12.12/vtl.js" integrity="sha256-FWxOSrzlqKWBDVQTMKuvqdoSGX+5/BfkEQWQcZ7mc/M=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vtl@21.12.14/vtl.js" integrity="sha256-aFptu3uhhD1XOuu9aiXgii/Cdouxr2T5Z68FGwJc8Vo=" crossorigin="anonymous"></script>
 ```
 
 Таблица стилей CSS:
 ```
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@21.12.12/vtl.css" integrity="sha256-1692rQDIMm5kAHtcDEgieQkofWr0SpyZpIqmEzKIDF4=" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@21.12.14/vtl.css" integrity="sha256-1692rQDIMm5kAHtcDEgieQkofWr0SpyZpIqmEzKIDF4=" crossorigin="anonymous"/>
 ```
 или та же таблица стилей, включая сомнительные изменения стилей стандартных элементов:
 ```
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@21.12.12/style.css" integrity="sha256-P+/o+QTCit9j3ARWjAn2ZG0wuqeX7DPKWMdvkM87/30=" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@21.12.14/style.css" integrity="sha256-P+/o+QTCit9j3ARWjAn2ZG0wuqeX7DPKWMdvkM87/30=" crossorigin="anonymous"/>
 ```
 или минимальный набор стилей для простых текстовых документов:
 ```
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@21.12.12/markdown.css" integrity="sha256-QeUWZci2yr7Vxe5Qq2lE2NZ4hlT9OlOhq3nJMefr8sk=" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@21.12.14/markdown.css" integrity="sha256-0O4oUru9UY7vn1CSvUvDVWXnROdCOyn8kg3QJoEMMYg=" crossorigin="anonymous"/>
 ```
 ________________________________________________________________________________
 <small>© 2015-2021 Васьковский Алексей. Распространяется на условиях лицензии MIT</small>
-<style>pre {white-space: pre-wrap}</style>

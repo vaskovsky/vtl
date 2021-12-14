@@ -4,7 +4,6 @@ MathJax &#8212; is a JavaScript display engine for mathematics <https://www.math
 
 ## CDN
 
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-chtml.js" integrity="sha256-z47L98YXVhVIaY0uyDzt675P5Ea+w3RsPh9VD5NuoTY=" crossorigin="anonymous"></script>
 ```
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-chtml.js" integrity="sha256-z47L98YXVhVIaY0uyDzt675P5Ea+w3RsPh9VD5NuoTY=" crossorigin="anonymous"></script>
 ```
@@ -50,4 +49,4 @@ VTL.createView(component_id).then(VTL.updateMathJax);
 \\[\begin{cases} x + 5y = 7 \\\\ 3x − 2y = 4 \end{cases}\\]
 ________________________________________________________________________________
 [↩ VTL](index.md)
-<style>pre {white-space: pre-wrap}</style>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-chtml.js" integrity="sha256-z47L98YXVhVIaY0uyDzt675P5Ea+w3RsPh9VD5NuoTY=" crossorigin="anonymous"></script>

@@ -53,7 +53,7 @@ code, kbd, pre, samp
 	unicode-bidi: bidi-override;
 }
 code {font-size: .875em; color: #d63384; word-wrap: break-word}
-pre {display: block; overflow: auto; font-size: .875em}
+pre {display: block; overflow: auto; font-size: .875em; white-space: pre-wrap}
 pre code {font-size: inherit; color: inherit; word-break: normal}
 ol, ul {padding-left: 2rem}
 hr
