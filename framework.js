@@ -450,13 +450,21 @@ VTL.FALSE_HTML_ATTRIBUTES =new RegExp('('+
 VTL.on("click", "#subquery, .subquery", function(event)
 {
 	event.preventDefault();
-	let href = event.target.getAttribute("href");
-	if(href.indexOf("#") >= 0)
-		href = href.replace("#", "#" + VTL.queryString + "&", href);
-	else
-		href += "#" + VTL.queryString;
-	console.log("go to", href);
-	location.href = href;
+	let target = event.target.closest("a#subquery, a.subquery");
+	let href = target.getAttribute("href");
+	if(href)
+	{
+		if(VTL.queryString)
+		{
+			if(href.indexOf("#") >= 0)
+				href = href.replace("#", "#" + VTL.queryString + "&", href);
+			else
+				href += "#" + VTL.queryString;
+		}
+		console.log("go to", href);
+		location.href = href;
+	}
+	else console.error("subquery has no href attribute @", event.target);
 });
 VTL.on("click", "#btn-back, .btn-back", event =>
 {

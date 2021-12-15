@@ -29,14 +29,16 @@
 	<div class="modal-body bg-light">
 		<div class="form-floating-group mb-2">
 			<div class="form-floating">
-				<input id="email" name="email" type="email"
-					placeholder="name@server.com" class="form-control"/>
-				<label for="email">Почта</label>
+				<input id="email_input" name="email" type="email"
+					placeholder="name@server.com" class="form-control"
+					required="required" autocomplete="email"/>
+				<label for="email_input">Почта</label>
 			</div>
 			<div class="form-floating">
-				<input id="password" name="password" type="password" value=""
-					placeholder="Пароль" class="form-control"/>
-				<label for="password">Пароль</label>
+				<input id="password_input" name="password" type="password"
+					placeholder="Пароль" class="form-control"
+					required="required" autocomplete="current-password"/>
+				<label for="password_input">Пароль</label>
 			</div>			
 		</div>
 		<div id="error" class="text-danger"></div>
@@ -63,14 +65,16 @@
 	<div class="modal-body bg-light">
 		<div class="form-floating-group mb-2">
 			<div class="form-floating">
-				<input id="login" name="login" type="text"
-					placeholder="name@server.com" class="form-control"/>
-				<label for="login">Логин</label>
+				<input id="login_input" name="login" type="text"
+					placeholder="name@server.com" class="form-control"
+					required="required" autocomplete="username"/>
+				<label for="login_input">Логин</label>
 			</div>
 			<div class="form-floating">
-				<input id="password" name="password" type="password" value=""
-					placeholder="Пароль" class="form-control"/>
-				<label for="password">Пароль</label>
+				<input id="password_input" name="password" type="password"
+					placeholder="Пароль" class="form-control"
+					required="required" autocomplete="current-password"/>
+				<label for="password_input">Пароль</label>
 			</div>			
 		</div>
 		<div id="error" class="text-danger"></div>
