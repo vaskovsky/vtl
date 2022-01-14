@@ -1,6 +1,6 @@
 # MathJax
 
-MathJax &#8212; is a JavaScript display engine for mathematics <https://www.mathjax.org/>.
+MathJax &#8212; это библиотека для отображения математических формул <https://www.mathjax.org/>.
 
 ## CDN
 
@@ -8,16 +8,16 @@ MathJax &#8212; is a JavaScript display engine for mathematics <https://www.math
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-chtml.js" integrity="sha256-z47L98YXVhVIaY0uyDzt675P5Ea+w3RsPh9VD5NuoTY=" crossorigin="anonymous"></script>
 ```
 
-## Using MathJax with VTL
+## Использование MathJax с VTL
 
-`VTL.updateMathJax` updates the formula view when using MathJax.
+`VTL.updateMathJax` обновляет представление формул при использовании MathJax.
 
-For example,
+Например,
 ```
 VTL.createView(component_id).then(VTL.updateMathJax);
 ```
 
-## Using MathJax
+## Использование MathJax
 
 `\(x^2, x^{a+b}\)`: \\(x^2, x^{a+b}\\)
 
@@ -48,5 +48,5 @@ VTL.createView(component_id).then(VTL.updateMathJax);
 `\[\begin{cases} x + 5y = 7 \\ 3x − 2y = 4 \end{cases}\]`:
 \\[\begin{cases} x + 5y = 7 \\\\ 3x − 2y = 4 \end{cases}\\]
 ________________________________________________________________________________
-[↩ VTL](index.md)
+[↩ Назад](javascript:history.back();)
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-chtml.js" integrity="sha256-z47L98YXVhVIaY0uyDzt675P5Ea+w3RsPh9VD5NuoTY=" crossorigin="anonymous"></script>

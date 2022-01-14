@@ -5,7 +5,9 @@ VTL &#8212; это JavaScript-фреймворк, набор HTML-шаблоно
 * [Образец приложения](sample/ru/index.html)
 * [HTML-шаблоны](html/ru/README.html)
 * [Справочник по API](api.md)
-* [Настройка VTL-приложений](setup.md)
+* [Установка VTL-приложения](install.md)
+* [Пароль администратора](admin.md)
+* [Масштабируемость](scalability.md)
 * [VTL + MathJax](mathjax.md)
 * [GitHub](https://github.com/vaskovsky/vtl)
 * [Старый VTL v4.17](http://vaskovsky.net/vtl-4/)
@@ -14,20 +16,20 @@ VTL &#8212; это JavaScript-фреймворк, набор HTML-шаблоно
 
 JavaScript-фреймворк:
 ```
-<script src="https://cdn.jsdelivr.net/npm/vtl@21.12.15/vtl.js" integrity="sha256-rRqcQS/uyMCMrnzUV3H8d63NSJ6zcOXZwTfIg3ab2Zs=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vtl@22.1.14/vtl.js" integrity="sha256-7b8Uk3x9mi5yYKH9bziNPBDAHPVSlFBg2MEcQMrt72Y=" crossorigin="anonymous"></script>
 ```
 
 Таблица стилей CSS:
 ```
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@21.12.15/vtl.css" integrity="sha256-1692rQDIMm5kAHtcDEgieQkofWr0SpyZpIqmEzKIDF4=" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@22.1.14/vtl.css" integrity="sha256-JMYd6afNl2pWDPM6O8BTMKfUmmCFRLUwBoOEb9l+IZM=" crossorigin="anonymous"/>
 ```
 или та же таблица стилей, включая сомнительные изменения стилей стандартных элементов:
 ```
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@21.12.15/style.css" integrity="sha256-P+/o+QTCit9j3ARWjAn2ZG0wuqeX7DPKWMdvkM87/30=" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@22.1.14/style.css" integrity="sha256-dWpSUeALg0wB0rI+aJIVj3QOwW3QAcdf9wrFc8xwlTc=" crossorigin="anonymous"/>
 ```
 или минимальный набор стилей для простых текстовых документов:
 ```
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@21.12.15/markdown.css" integrity="sha256-0O4oUru9UY7vn1CSvUvDVWXnROdCOyn8kg3QJoEMMYg=" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@22.1.14/markdown.css" integrity="sha256-Ez7rHEUnyFwApa1ehQ3is1OyGgq/LkpUzPwLXDrSck8=" crossorigin="anonymous"/>
 ```
 ________________________________________________________________________________
 <small>© 2015-2021 Васьковский Алексей. Распространяется на условиях лицензии MIT</small>

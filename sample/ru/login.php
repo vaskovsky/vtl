@@ -1,5 +1,5 @@
 <?php
-require_once "database.php";
+require_once "config.php";
 try
 {
 	if(isset($_GET["logout"]))
@@ -14,9 +14,9 @@ try
 	}
 	$return = trim(@$_GET["return"]);
 	$login = trim($_POST["login"]);
-	$password = hash("sha512", trim($_POST["password"]));
-	$sth = $dbh->prepare("select * from account".
-		" where login = ? and password = ?");
+	$password = hash("sha512", trim($_POST["password"]).$SALT);
+	$sth = $dbh->prepare(
+		"select * from account where login = ? and password = ?");
 	$sth->execute([$login, $password]);
 	$account = $sth->fetch();
 	if($account)
@@ -32,7 +32,7 @@ try
 				default: $return = "index.html#user";			
 			}
 		}
-		header($CT_TEXT);
+		header("Content-Type: text/plain;charset=UTF-8");
 		exit($return);
 	}
 	else
@@ -40,13 +40,13 @@ try
 		$_SESSION["account_id"] = null;
 		$_SESSION["role_id"] = 0;
 		http_response_code(403);
-		header($CT_TEXT);
+		header("Content-Type: text/plain;charset=UTF-8");
 		exit("Неверный логин или пароль");
 	}
 }
 catch(Exception $ex)
 {
 	http_response_code(500);
-	header($CT_TEXT);
+	header("Content-Type: text/plain;charset=UTF-8");
 	exit($ex->getMessage());
 }

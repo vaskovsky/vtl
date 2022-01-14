@@ -1,6 +1,7 @@
+/.*
 /Makefile
-/TODO
+/TODO.md
 /node_modules
 /vendor
 /ruen.json
-/...
+
