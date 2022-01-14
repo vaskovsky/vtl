@@ -102,20 +102,9 @@ where `http://vaskovsky.net/vtl/sample/en/` is the address of your backend serve
 
 ## Files
 
-`btn-back.js` implements `.btn-back, #btn-back` without framework.
+`vtl.src.js`: JavaScript framework.
 
-`btn-print.js` implements `.btn-print, #btn-print` without framework.
-
-`btn-reload.js` implements `.btn-reload, #btn-print` without framework.
-
-`datepicker3.js`: date picker for Bootstrap 3.
-
-`framework.js`: JavaScript framework.
-
-`vtl.js`: minimized version of the file `framework.js`.
-
-`vtl.ie6.js`: IE6-compatible implementation for `btn-*`
-(uses `id` instead of classes).
+`vtl.js`: minimized version of the file `vtl.src.js`.
 
 `vtl.css`: CSS style set.
 

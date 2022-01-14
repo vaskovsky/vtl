@@ -102,20 +102,9 @@ VTL.createForm("login").then(VTL.initialPOST);
 
 ## Файлы
 
-`btn-back.js` реализует `.btn-back, #btn-back` без фреймворка.
+`vtl.src.js`: JavaScript-фреймворк.
 
-`btn-print.js` реализует `.btn-print, #btn-print` без фреймворка.
-
-`btn-reload.js` реализует `.btn-reload, #btn-print` без фреймворка.
-
-`datepicker3.js`: выбор даты для Bootstrap 3.
-
-`framework.js`: JavaScript-фреймворк.
-
-`vtl.js`: минимизированная версия файла `framework.js`.
-
-`vtl.ie6.js`: совместимая с IE6 реализация кнопок `btn-*`
-(использует `id` вместо классов).
+`vtl.js`: минимизированная версия файла `vtl.src.js`.
 
 `vtl.css`: набор стилей CSS.
 
