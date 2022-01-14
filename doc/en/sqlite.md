@@ -27,4 +27,3 @@ where
 Make sure, that user, under which PHP is run,
 has write permissions to this file.
 ________________________________________________________________________________
-[↩ Back](javascript:history.back();)

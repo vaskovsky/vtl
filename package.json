@@ -1,6 +1,6 @@
 {
 	"name": "vtl",
-	"version": "22.1.14",
+	"version": "22.1.15",
 	"description": "Vaskovsky Template Library (VTL)",
 	"main": "vtl.js",
 	"repository": {

@@ -31,4 +31,3 @@ $DB_PASSWORD = 'mysql_password';
 
 `mysql_password`: пароль пользователя MySQL.
 ________________________________________________________________________________
-[↩ Назад](javascript:history.back();)

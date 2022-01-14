@@ -31,4 +31,3 @@ $DB_PASSWORD = 'postgres_password';
 
 `postgres_password`: пароль пользователя PostgreSQL.
 ________________________________________________________________________________
-[↩ Назад](javascript:history.back();)

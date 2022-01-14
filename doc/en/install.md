@@ -23,4 +23,3 @@ If there are no other messages, installation completed successfully.
 
 Don't forget to change the administrator password.
 ________________________________________________________________________________
-[↩ Back](javascript:history.back();)

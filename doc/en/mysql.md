@@ -31,4 +31,3 @@ where
 
 `mysql_password`: MySQL user password.
 ________________________________________________________________________________
-[↩ Back](javascript:history.back();)

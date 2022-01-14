@@ -31,4 +31,3 @@ where
 
 `postgres_password`: PostgreSQL user password.
 ________________________________________________________________________________
-[↩ Back](javascript:history.back();)

@@ -112,4 +112,3 @@ where `http://vaskovsky.net/vtl/sample/en/` is the address of your backend serve
 
 `markdown.css`: minimum set of styles for simple text documents.
 ________________________________________________________________________________
-[↩ Back](javascript:history.back();)

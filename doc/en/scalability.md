@@ -21,4 +21,3 @@ but you can specify a different location by using the element
 <link id="server" href="http://vaskovsky.net/vtl/sample/en/" rel="preconnect"/>
 ```
 ________________________________________________________________________________
-[↩ Back](javascript:history.back();)

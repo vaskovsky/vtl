@@ -33,4 +33,3 @@ Be sure to change the administrator password after installing the application.
 
 To do this, select the menu item `Settings`.
 ________________________________________________________________________________
-[↩ Back](javascript:history.back();)

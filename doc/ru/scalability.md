@@ -21,4 +21,3 @@
 <link id="server" href="http://vaskovsky.ru/vtl/sample/ru/" rel="preconnect"/>
 ```
 ________________________________________________________________________________
-[↩ Назад](javascript:history.back();)
