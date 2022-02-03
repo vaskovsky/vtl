@@ -15,26 +15,29 @@ if(isset($_GET["new"]))
 		"role_name" => "",
 		"role_id" => "1",
 	);
+	$params = array();
+	$login = (string) trim($account['login']);
+	if(isset($_POST['login']))
+		$login = (string) trim($_POST['login']);
+	$account['login'] = $login;
+	$params[] = $login;
+	$password = hash('sha512', trim($account['password']).$SALT);
+	if(!empty($_POST['password']))
+		$password = hash('sha512', trim($_POST['password']).$SALT);
+	$account['password'] = $password;
+	$params[] = $password;
+	$role_id = (int) trim($account['role_id']);
+	if(isset($_POST['role_id']))
+		$role_id = (int) trim($_POST['role_id']);
+	$account['role_id'] = $role_id;
+	$params[] = $role_id;
 	if(empty($_POST))
 	{
 		$sth = array($account);
 	}
-	else
+	else if(!isset($_POST["delete"]))
 	{
-		$params = array();
-		$login = (string) trim($account['login']);
-			if(isset($_POST['login']))
-				$login = (string) trim($_POST['login']);
-		$params[] = $login;
-		$password = hash('sha512', trim($account['password']).$SALT);
-			if(!empty($_POST['password']))
-				$password = hash('sha512', trim($_POST['password']).$SALT);
-		$params[] = $password;
-		$role_id = (int) trim($account['role_id']);
-			if(isset($_POST['role_id']))
-				$role_id = (int) trim($_POST['role_id']);
-		$params[] = $role_id;
-		$sth = $dbh->prepare("insert into account(login, password, role_id) values (?, ?, ?)");
+		$sth = $dbh->prepare("INSERT INTO account(login, password, role_id) VALUES (?, ?, ?)");
 		$sth->execute($params);		
 	}
 }
@@ -43,7 +46,7 @@ else if(isset($_GET['account_id']))
 	$keys = array();
 	$account_id = (int) trim($_GET['account_id']);
 	$keys[] = $account_id;
-	$sth = $dbh->prepare("select account.account_id, account.login, account.password, display_role_id.role_name, account.role_id from account inner join role display_role_id on display_role_id.role_id = account.role_id where account.account_id = ?");
+	$sth = $dbh->prepare("SELECT account.account_id, account.login, account.password, display_role_id.role_name, account.role_id FROM account INNER JOIN role display_role_id ON display_role_id.role_id = account.role_id WHERE account.account_id = ?");
 	$sth->execute($keys);
 	if(!empty($_POST))
 	{
@@ -54,37 +57,45 @@ else if(isset($_GET['account_id']))
 			header("Content-Type: text/plain;charset=UTF-8");
 			exit("Not found");
 		}
-		$params = array();
-		$login = $account["login"];
+		if(isset($_POST["delete"]))
+		{
+			$sth = $dbh->prepare("DELETE FROM account WHERE  account.account_id = ?");
+			$sth->execute($keys);
+		}
+		else
+		{
+			$params = array();
+			$login = $account["login"];
 			if(isset($_POST['login']))
 				$login = (string) trim($_POST['login']);
-		$params[] = $login;
-		$password = $account["password"];
+			$params[] = $login;
+			$password = $account["password"];
 			if(!empty($_POST['password']))
 				$password = hash('sha512', trim($_POST['password']).$SALT);
-		$params[] = $password;
-		$role_id = $account["role_id"];
+			$params[] = $password;
+			$role_id = $account["role_id"];
 			if(isset($_POST['role_id']))
 				$role_id = (int) trim($_POST['role_id']);
-		$params[] = $role_id;
-		foreach($keys as $key) $params[] = $key;
-		$sth = $dbh->prepare("update account set login = ?,  password = ?,  role_id = ? where  account.account_id = ?");
-		$sth->execute($params);
+			$params[] = $role_id;
+			foreach($keys as $key) $params[] = $key;
+			$sth = $dbh->prepare("update account set login = ?,  password = ?,  role_id = ? where  account.account_id = ?");
+			$sth->execute($params);
+		}
 	}
 }
 else if(isset($_GET["login"]))
 {
 	$login = (string) trim($_GET['login']);
-	$sth = $dbh->prepare("select account.account_id, account.login, account.password, display_role_id.role_name, account.role_id from account inner join role display_role_id on display_role_id.role_id = account.role_id where account.login = ?");
+	$sth = $dbh->prepare("SELECT account.account_id, account.login, account.password, display_role_id.role_name, account.role_id FROM account INNER JOIN role display_role_id ON display_role_id.role_id = account.role_id WHERE account.login = ?");
 	$sth->execute([$login]);
 }
 else
 {
-	$sth = $dbh->query("select account.account_id, account.login, display_role_id.role_name, account.role_id from account inner join role display_role_id on display_role_id.role_id = account.role_id");
+	$sth = $dbh->query("SELECT account.account_id, account.login, display_role_id.role_name, account.role_id FROM account INNER JOIN role display_role_id ON display_role_id.role_id = account.role_id");
 }
 if(empty($_POST))
 {
-	$select_role_id = $dbh->query("select role_id, role_name from role order by role_name");
+	$select_role_id = $dbh->query("SELECT role_id, role_name FROM role ORDER BY role_name");
 	header("Content-Type: application/xml;charset=UTF-8");
 	echo '<account_data>';
 	$counter = 0;

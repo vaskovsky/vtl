@@ -96,9 +96,9 @@ VTL.createForm("login").then(VTL.initialPOST);
 
 Расположение бэкенд-сервера можно изменить с помощью HTML-тега:
 ```
-<link id="server" href="http://vaskovsky.ru/vtl/sample/ru/" rel="preconnect"/>
+<link id="server" href="https://vaskovsky.ru/vtl/sample/ru/" rel="preconnect"/>
 ```
-где `http://vaskovsky.ru/vtl/sample/ru/` это адрес Вашего бэкенд-сервера.
+где `https://vaskovsky.ru/vtl/sample/ru/` это адрес Вашего бэкенд-сервера.
 
 ## Файлы
 

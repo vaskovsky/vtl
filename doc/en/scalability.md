@@ -18,6 +18,6 @@ Default, front-end looks for backend on the same server, in the same directory,
 but you can specify a different location by using the element
 
 ```
-<link id="server" href="http://vaskovsky.net/vtl/sample/en/" rel="preconnect"/>
+<link id="server" href="https://vaskovsky.net/vtl/sample/en/" rel="preconnect"/>
 ```
 ________________________________________________________________________________

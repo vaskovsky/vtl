@@ -110,7 +110,7 @@ const VTL = new class
 	}
 	async post(component_id, data)
 	{
-		console.log("post", component_id);
+		console.log("post", component_id, data);
 		if(VTL.isLocal) return null;
 		const response = await VTL.fetch(component_id,
 		{
@@ -120,6 +120,12 @@ const VTL = new class
 		});
 		return response.text();
 	}
+	delete(component_id)
+	{
+		const data = new FormData();
+		data.append("delete", "on");
+		return this.post(component_id, data);
+	}
 	on(eventType, selector, handler)
 	{
 		this.listeners.push([eventType, selector, handler]);
@@ -127,14 +133,39 @@ const VTL = new class
 			for(const eventTarget of eventTargets)
 				eventTarget.addEventListener(eventType, handler);
 	}
-	handleEvents(newElementHTML)
+	handleEvents(component)
 	{
 		for(const listener of this.listeners)
 		{
 			const [eventType, selector, handler] = listener;
-			const eventTargets = newElementHTML.querySelectorAll(selector);
+			const eventTargets = component.view.querySelectorAll(selector);
 			for(const eventTarget of eventTargets)
 				eventTarget.addEventListener(eventType, handler);
+		}
+		const btnCancelList = component.view.querySelectorAll(
+				"#btn-cancel, .btn-cancel");
+		for(let btnCancel of btnCancelList)
+		{
+			btnCancel.addEventListener("click", event =>
+			{
+				event.preventDefault();
+				history.back();
+			});
+		}
+		const btnDeleteList = component.view.querySelectorAll(
+				"#btn-delete, .btn-delete");
+		for(let btnDelete of btnDeleteList)
+		{
+			btnDelete.addEventListener("click", async event =>
+			{
+				event.preventDefault();
+				if(/(^|&)new=on(&|$)/.test(VTL.queryString)
+				|| confirm(VTL.getLocalizedMessage("Confirm deletion")))
+				{
+					const href = await VTL.delete(component.id);
+					location.href = href;
+				}
+			});
 		}
 	}
 	createForm(component_id)
@@ -242,17 +273,7 @@ const VTL = new class
 								VTL.stringifyXML(datalist));
 				}
 			}
-			VTL.handleEvents(component.view);
-			const btnCancelList = component.view.querySelectorAll(
-				"#btn-cancel, .btn-cancel");
-			for(let btnCancel of btnCancelList)
-			{
-				btnCancel.addEventListener("click", event =>
-				{
-					event.preventDefault();
-					history.back();
-				});
-			}
+			VTL.handleEvents(component);			
 			resolve("render");
 		});
 	}
@@ -342,6 +363,18 @@ const VTL = new class
 			}
 		});
 	}
+	getLanguage()
+	{
+		let lang = navigator.language || "";
+		if(lang && lang.length > 2) lang = lang.substring(0, 2);
+		return lang.toUpperCase();
+	}
+	getLocalizedMessage(msg)
+	{
+		const lang = VTL.getLanguage();
+		return VTL.MESSAGES[lang] && VTL.MESSAGES[lang][msg]?
+			VTL.MESSAGES[lang][msg]: msg;
+	}	
 };
 VTL.Component = class
 {
@@ -418,35 +451,6 @@ VTL.Promise = class
 		}
 	}
 };
-VTL.FALSE_HTML_ATTRIBUTES =new RegExp('('+
-[
-	"allowfullscreen",
-	"allowpaymentrequest",
-	"async",
-	"autofocus",
-	"autoplay",
-	"checked",
-	"controls",
-	"default",
-	"defer",
-	"disabled",
-	"formnovalidate",
-	"hidden",
-	"ismap",
-	"itemscope",
-	"loop",
-	"multiple",
-	"muted",
-	"nomodule",
-	"novalidate",
-	"open",
-	"playsinline",
-	"readonly",
-	"required",
-	"reversed",
-	"selected",
-	"truespeed"
-].join("|")+')="(false|no|off|0)?"', "gi");
 VTL.on("click", "#subquery, .subquery", function(event)
 {
 	event.preventDefault();
@@ -481,4 +485,40 @@ VTL.on("click", "#btn-reload, .btn-reload", event =>
 	event.preventDefault();
 	location.reload();
 });
+VTL.FALSE_HTML_ATTRIBUTES = new RegExp('('+
+[
+	"allowfullscreen",
+	"allowpaymentrequest",
+	"async",
+	"autofocus",
+	"autoplay",
+	"checked",
+	"controls",
+	"default",
+	"defer",
+	"disabled",
+	"formnovalidate",
+	"hidden",
+	"ismap",
+	"itemscope",
+	"loop",
+	"multiple",
+	"muted",
+	"nomodule",
+	"novalidate",
+	"open",
+	"playsinline",
+	"readonly",
+	"required",
+	"reversed",
+	"selected",
+	"truespeed"
+].join("|")+')="(false|no|off|0)?"', "gi");
+VTL.MESSAGES = 
+{
+	RU:
+	{
+		"Confirm deletion":	"Подтвердите удаление"
+	}	
+};
 //export {VTL, VTL as default};

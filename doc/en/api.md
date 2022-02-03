@@ -96,9 +96,9 @@ Every time you call `resolve` all subsequent promises will be invoked.
 
 The location of the backend server can be changed using the HTML tag:
 ```
-<link id="server" href="http://vaskovsky.net/vtl/sample/en/" rel="preconnect"/>
+<link id="server" href="https://vaskovsky.net/vtl/sample/en/" rel="preconnect"/>
 ```
-where `http://vaskovsky.net/vtl/sample/en/` is the address of your backend server.
+where `https://vaskovsky.net/vtl/sample/en/` is the address of your backend server.
 
 ## Files
 

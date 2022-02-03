@@ -18,6 +18,6 @@
 но можно указать другое расположение с помощью элемента
 
 ```
-<link id="server" href="http://vaskovsky.ru/vtl/sample/ru/" rel="preconnect"/>
+<link id="server" href="https://vaskovsky.ru/vtl/sample/ru/" rel="preconnect"/>
 ```
 ________________________________________________________________________________
