@@ -161,10 +161,7 @@ const VTL = new class
 				event.preventDefault();
 				if(/(^|&)new=on(&|$)/.test(VTL.queryString)
 				|| confirm(VTL.getLocalizedMessage("Confirm deletion")))
-				{
-					const href = await VTL.delete(component.id);
-					location.href = href;
-				}
+					VTL.redirect(await VTL.delete(component.id));
 			});
 		}
 	}
@@ -184,8 +181,7 @@ const VTL = new class
 						const error = document.getElementById("error");
 						if(error) error.textContent = "";
 						const data = new FormData(component.view);
-						const href = await VTL.post(component.id, data);
-						location.href = href;						
+						VTL.redirect(await VTL.post(component.id, data));
 					});
 				resolve("create");
 			}
@@ -374,7 +370,16 @@ const VTL = new class
 		const lang = VTL.getLanguage();
 		return VTL.MESSAGES[lang] && VTL.MESSAGES[lang][msg]?
 			VTL.MESSAGES[lang][msg]: msg;
-	}	
+	}
+	redirect(href)
+	{
+		if("OK" == href || "BACK" == href)
+			history.back();
+		else if("RELOAD" == href)
+			location.reload();
+		else
+			location.href = href;
+	}
 };
 VTL.Component = class
 {

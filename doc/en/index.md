@@ -16,20 +16,20 @@ VTL &#8212; is a JavaScript framework, a set of HTML templates and CSS styles fo
 
 JavaScript framework:
 ```
-<script src="https://cdn.jsdelivr.net/npm/vtl@22.2.2/vtl.js" integrity="sha256-oGNKzmSsgyrB2CNTd0D/Cv8jiZ6nSucftJrX+0BA7E0=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vtl@22.2.11/vtl.js" integrity="sha256-WREx6FbJLdN4uwiVWPPDfozsohowe9+dBc6awwCBAL8=" crossorigin="anonymous"></script>
 ```
 
 CSS style sheet:
 ```
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@22.2.2/vtl.css" integrity="sha256-JMYd6afNl2pWDPM6O8BTMKfUmmCFRLUwBoOEb9l+IZM=" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@22.2.11/vtl.css" integrity="sha256-JMYd6afNl2pWDPM6O8BTMKfUmmCFRLUwBoOEb9l+IZM=" crossorigin="anonymous"/>
 ```
 or the same style sheet, including questionable changes to the styles of standard elements:
 ```
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@22.2.2/style.css" integrity="sha256-dWpSUeALg0wB0rI+aJIVj3QOwW3QAcdf9wrFc8xwlTc=" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@22.2.11/style.css" integrity="sha256-dWpSUeALg0wB0rI+aJIVj3QOwW3QAcdf9wrFc8xwlTc=" crossorigin="anonymous"/>
 ```
 or a minimum set of styles for simple text documents:
 ```
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@22.2.2/markdown.css" integrity="sha256-miEllZMJzViFQoHLS4OFiASj76EM6OYcD5yOA9g4g40=" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@22.2.11/markdown.css" integrity="sha256-miEllZMJzViFQoHLS4OFiASj76EM6OYcD5yOA9g4g40=" crossorigin="anonymous"/>
 ```
 ________________________________________________________________________________
 <small>© 2015-2021 Alexey Vaskovsky. Released under the MIT license</small>
