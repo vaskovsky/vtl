@@ -16,20 +16,20 @@ VTL &#8212; это JavaScript-фреймворк, набор HTML-шаблоно
 
 JavaScript-фреймворк:
 ```
-<script src="https://cdn.jsdelivr.net/npm/vtl@22.2.11/vtl.js" integrity="sha256-WREx6FbJLdN4uwiVWPPDfozsohowe9+dBc6awwCBAL8=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vtl@22.2.14/vtl.js" integrity="sha256-NuMWlOQNuTEVCnsVVy7So4Nj4mR51Ehg9sAEVDQ2jz0=" crossorigin="anonymous"></script>
 ```
 
 Таблица стилей CSS:
 ```
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@22.2.11/vtl.css" integrity="sha256-JMYd6afNl2pWDPM6O8BTMKfUmmCFRLUwBoOEb9l+IZM=" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@22.2.14/vtl.css" integrity="sha256-JMYd6afNl2pWDPM6O8BTMKfUmmCFRLUwBoOEb9l+IZM=" crossorigin="anonymous"/>
 ```
 или та же таблица стилей, включая сомнительные изменения стилей стандартных элементов:
 ```
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@22.2.11/style.css" integrity="sha256-dWpSUeALg0wB0rI+aJIVj3QOwW3QAcdf9wrFc8xwlTc=" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@22.2.14/style.css" integrity="sha256-dWpSUeALg0wB0rI+aJIVj3QOwW3QAcdf9wrFc8xwlTc=" crossorigin="anonymous"/>
 ```
 или минимальный набор стилей для простых текстовых документов:
 ```
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@22.2.11/markdown.css" integrity="sha256-miEllZMJzViFQoHLS4OFiASj76EM6OYcD5yOA9g4g40=" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vtl@22.2.14/markdown.css" integrity="sha256-miEllZMJzViFQoHLS4OFiASj76EM6OYcD5yOA9g4g40=" crossorigin="anonymous"/>
 ```
 ________________________________________________________________________________
 <small>© 2015-2021 Васьковский Алексей. Распространяется на условиях лицензии MIT</small>

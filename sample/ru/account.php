@@ -133,5 +133,5 @@ if(empty($_POST))
 else
 {
 	header("Content-Type: text/plain;charset=UTF-8");
-	exit("account.html");
+	exit("OK");
 }

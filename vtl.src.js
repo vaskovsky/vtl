@@ -156,13 +156,16 @@ const VTL = new class
 				"#btn-delete, .btn-delete");
 		for(let btnDelete of btnDeleteList)
 		{
-			btnDelete.addEventListener("click", async event =>
-			{
-				event.preventDefault();
-				if(/(^|&)new=on(&|$)/.test(VTL.queryString)
-				|| confirm(VTL.getLocalizedMessage("Confirm deletion")))
-					VTL.redirect(await VTL.delete(component.id));
-			});
+			if(/(^|&)new=on(&|$)/.test(VTL.queryString))
+				btnDelete.style.display = "none";
+			else
+				btnDelete.addEventListener("click", async event =>
+				{
+					event.preventDefault();
+					if(/(^|&)new=on(&|$)/.test(VTL.queryString)
+					|| confirm(VTL.getLocalizedMessage("Confirm deletion")))
+						VTL.redirect(await VTL.delete(component.id));
+				});
 		}
 	}
 	createForm(component_id)
@@ -182,7 +185,7 @@ const VTL = new class
 						if(error) error.textContent = "";
 						const data = new FormData(component.view);
 						VTL.redirect(await VTL.post(component.id, data));
-					});
+					});				
 				resolve("create");
 			}
 		});
