@@ -529,4 +529,6 @@ VTL.MESSAGES =
 		"Confirm deletion":	"Подтвердите удаление"
 	}	
 };
+//force Firefox to reload page on history.back()
+window.addEventListener("unload", () => {});
 //export {VTL, VTL as default};
